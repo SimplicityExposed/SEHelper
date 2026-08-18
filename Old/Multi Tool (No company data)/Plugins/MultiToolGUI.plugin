@@ -1,0 +1,49 @@
+;Multi-Tool GUI
+Gui, 1:Destroy
+Gui, 1:Default
+Gui, 1:+Toolwindow +AlwaysOnTop
+Gui, Color, ,  ;
+IniRead, ProdAvailableSQL, %A_ScriptDir%\System.ini, ProdSQL, SQLFiles,
+;Gui, Add, Picture, x0 y0 h305 w702, %A_ScriptDir%\Assets\blackbgtest.png
+Gui, Add, Text, x2 y2, Various tools can be found on each of the following tabs.
+; -- Clipnotes
+Gui, Add, GroupBox, x2 y255 w157 h50 , Clipnote #1
+;Gui, Add, Picture, x2 y255 w157 h50, %A_ScriptDir%\Assets\blackbgtest.png
+Gui, Add, Edit, x12 y277 w50 h20 +Center Disabled, %CN1JC% ; Clipnote 1 Job Display
+Gui, Add, Button, x69 y277 w40 h20 gCN1S, Save ; Save Clipnote 1
+Gui, Add, Button, x119 y277 w30 h20 gCN1G, Get ; Get Clipnote 1
+Gui, Add, GroupBox, x172 y255 w157 h50 , Clipnote #2
+Gui, Add, Edit, x182 y277 w50 h20 +Center Disabled, %CN2JC% ; Clipnote 2 Entry Field
+Gui, Add, Button, x239 y277 w40 h20 gCN2S, Save ; Save Clipnote 2
+Gui, Add, Button, x289 y277 w30 h20 gCN2G, Get ; Get Clipnote 2
+Gui, Add, GroupBox, x342 y255 w157 h50 , Clipnote #3
+Gui, Add, Edit, x352 y277 w50 h20 +Center Disabled, %CN3JC% ; Clipnote 3 Entry Field
+Gui, Add, Button, x409 y277 w40 h20 gCN3S, Save ; Save Clipnote 3
+Gui, Add, Button, x459 y277 w30 h20 gCN3G, Get ; Get Clipnote 3
+Gui, Add, GroupBox, x512 y255 w157 h50 , Clipnote #4
+Gui, Add, Edit, x522 y277 w50 h20 +Center Disabled, %CN4JC% ; Clipnote 4 Entry Field
+Gui, Add, Button, x579 y277 w40 h20 gCN4S, Save ; Save Clipnote 4
+Gui, Add, Button, x629 y277 w30 h20 gCN4G, Get ; Get Clipnote 4
+Gui, Add, Button, x677 y277 w20 h20 gCNHelp, ?
+
+; ---------- START TABBED BUTTONS
+Gui, Add, Tab, x2 y20 w700 h230, %MultiToolTabs%
+	;#Include %A_ScriptDir%\Plugins\MultiToolT1ProdFolders.plugin ; --------- Include T1 "Prod Folders"
+	;#Include %A_ScriptDir%\Plugins\MultiToolT2VOPFolders.plugin ; ----------- Include T2 "VOP Folders"
+	;#Include %A_ScriptDir%\Plugins\MultiToolT3ProdSQL.plugin ; ----------- Include T3 "Prod SQL"
+	;#Include %A_ScriptDir%\Plugins\MultiToolT4VOPSQL.plugin ; ----------- Include T4 "VOP SQL"
+	;#Include %A_ScriptDir%\Plugins\MultiToolT5ClipboardModification.plugin  ; ----------- Include T5 "Clipboard Modification"
+	;#Include %A_ScriptDir%\Plugins\MultiToolT6Template.Plugin  ; ----------- Include T6 "TAB TEMPLATE"
+	;#Include %A_ScriptDir%\Plugins\MultiToolTMMRGenerator.plugin ; ---------- Include Tab for MMR HTML Generator
+	;#Include %A_ScriptDir%\Plugins\MultiToolTMVSSetup.plugin ; ---------- Include MVS Setup
+	#Include %A_ScriptDir%\Plugins\DevTab.plugin ; Developer Tab
+
+; In-App update notification.
+IniRead, ServerVersion, %A_ScriptDir%\System.ini, SuiteVersion, CurrentVersion,
+IfNotEqual MVersion, %ServerVersion%
+	{
+		Gui, Font, S8 CRed Bold,
+		Gui, Add, Text, x450 y3 w200 h13 gUpdateNotification, V%ServerVersion% Update Available!
+		Gui, Font
+		Gui, Add, Button, x622 y0 w80 h20 gMTB7, Update
+	} 

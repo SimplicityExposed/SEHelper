@@ -1,0 +1,34 @@
+; ---------- MMR HTML Email Copy Generator
+Gui, Tab, Variable Setup
+	Gui, Add, ListBox, x22 y59 w180 h190 vVariableSetupChosen Multi, %VariableSetupChoices%
+	Gui, Add, Text, x22 y44 w180 h14 , Available Variables
+	Gui, Add, Button, x232 y90 w140 h20 gVarSetupInstructions, Read The Instructions
+	Gui, Add, Button, x222 y140 w170 h30 gVarSetup, Set Up Selected Variables
+	Gui, Add, Edit, x302 y115 w70 h20 vMVSJobSetup, %JobClip%
+	Gui, Add, Text, x232 y117 w70 h14 +Right, Job Number:
+	Gui, Font, S10 CRed Bold, Verdana
+	Gui, Add, Text, x262 y70 w80 h20 , WARNING!
+	Gui, Font, , 
+	Gui, Add, Text, x412 y50 w270 h60 , While using the Variable Setup tool please make sure that you abide by the following guidelines. Not doing so WILL cause the tool to fail and cause random`, possibly catastrophic behaviors on your computer.
+	Gui, Add, GroupBox, x212 y50 w190 h130 , Variable Actions
+	Gui, Add, Text, x422 y130 w250 h20 , 1. You must activate this from your MVS tool.
+	Gui, Add, Text, x422 y160 w250 h20 , 2. You must be logged in to your MVS tool.
+	Gui, Add, Text, x422 y190 w250 h20 , 3. Variable Setup can NOT already be in place.
+Gui, Tab
+
+
+; Pre-Mk4 console UI location and coding
+;	Gui, Add, ListBox, x22 y130 w180 h110 vVariableSetupChosen Multi, %VariableSetupChoices%
+;	Gui, Add, Text, x23 y116 w180 h13 , Available Variables
+;	Gui, Add, Button, x242 y150 w140 h20 gVarSetupInstructions, Read The Instructions
+;	Gui, Add, Button, x222 y200 w180 h30 gVarSetup, Set Up Selected Variables
+;	Gui, Add, Edit, x312 y175 w70 h20 vMVSJobSetup, %JobClip%
+;	Gui, Add, Text, x242 y176 w70 h20 +Right, Job Number:
+;	Gui, Font, S10 CRed Bold, Verdana
+;	Gui, Add, Text, x272 y130 w80 h20 , WARNING!
+;	Gui, Font, , 
+;	Gui, Add, Text, x422 y120 w270 h60 , While using the Variable Setup tool please make sure that you abide by the following guidelines. Not doing so WILL cause the tool to fail and cause random`, possibly catastrophic behaviors on your computer.
+;	Gui, Add, GroupBox, x212 y116 w200 h125 , Variable Actions
+;	Gui, Add, Text, x432 y180 w250 h20 , 1. You must activate this from your MVS tool.
+;	Gui, Add, Text, x432 y200 w250 h20 , 2. You must be logged in to your MVS tool.
+;	Gui, Add, Text, x432 y220 w250 h20 , 3. Variable Setup can NOT already be in place.

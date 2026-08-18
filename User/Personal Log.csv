@@ -1,0 +1,4 @@
+Date,Time,Username,Entry Type,Log Entry
+5/12/2022,14:56,username,To-Do,Update dev\SSRS_ReportCollector and dev\UserSecurrityAccessReview\dcp\SP_Online with ClientID/Secret Functionality
+
+05/12/2022,14:59,username,To-Do,Update CredMgr to support Client ID/Secret

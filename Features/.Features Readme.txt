@@ -1,0 +1,19 @@
+ _____ _____    _  _____ _   _ ____  _____ ____     ___  ____   ____    _    _   _ ___ _____   _  _____ ___ ___  _   _ 
+|  ___| ____|  / \|_   _| | | |  _ \| ____/ ___|   / _ \|  _ \ / ___|  / \  | \ | |_ _|__  /  / \|_   _|_ _/ _ \| \ | |
+| |_  |  _|   / _ \ | | | | | | |_) |  _| \___ \  | | | | |_) | |  _  / _ \ |  \| || |  / /  / _ \ | |  | | | | |  \| |
+|  _| | |___ / ___ \| | | |_| |  _ <| |___ ___) | | |_| |  _ <| |_| |/ ___ \| |\  || | / /_ / ___ \| |  | | |_| | |\  |
+|_|   |_____/_/   \_\_|  \___/|_| \_\_____|____/   \___/|_| \_\\____/_/   \_\_| \_|___/____/_/   \_\_| |___\___/|_| \_|
+-----------------------------------------------------------------------------------------------------------------------
+
+If you develop a feature for the SE Helper tool please place any global functions usable for other tasks in the Lib folder.
+
+All of your feature specific code should go in the Features folder and follow this organization:
+
+:: FeatureName Labels.ahk - include all your feature specific code here and #Include this file in "SE Helper Labels.ahk".
+:: FeatureName Startup.ahk - include all your startup code here and then #Include this file in "SE Helper Startup.ahk".
+:: FeatureName GUI.tab - If your feature uses a tab name it like this, and #Include this file in "SE Helper Console.gui"
+:: FeatureName GUIType.gui - If your feature uses its own GUI window name it here and #Include its call in your "FeatureName Labels.ahk" file.
+
+
+*** IMPORTANT: 
+::Please limit tabs included in the console to 800x400 resolution. You can start placing objects at x0 y0 without issue by design.

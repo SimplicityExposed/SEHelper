@@ -1,0 +1,230 @@
+; Define names of buttons within tabs of multi-tool:
+; TAB 1
+; Prod Folders
+T1Column1Row1 = Prod Team Files
+T1Column1Row2 = ERI STD Live Variables
+T1Column1Row3 = ERI Custom Variables
+T1Column1Row4 = MMR Custom Variables
+T1Column1Row5 = ERI\Test_ids_variables
+T1Column1Row6 = Seg_counts_etc
+
+
+T1Column2Row1 = Panel Ops HTML emails
+T1Column2Row2 = PEG/SSLC Exception
+T1Column2Row3 = 
+T1Column2Row4 = 
+T1Column2Row5 = 
+T1Column2Row6 = 
+
+
+T1Column3Row1 = 
+T1Column3Row2 = 
+T1Column3Row3 = 
+T1Column3Row4 = 
+T1Column3Row5 = 
+T1Column3Row6 = 
+
+
+T1Column4Row1 = 
+T1Column4Row2 = 
+T1Column4Row3 = 
+T1Column4Row4 = 
+T1Column4Row5 = 
+T1Column4Row6 = 
+
+
+
+; TAB 2
+; VOP Folders
+T2Column1Row1 = 
+T2Column1Row2 = 
+T2Column1Row3 = 
+T2Column1Row4 = 
+T2Column1Row5 = 
+T2Column1Row6 = 
+
+
+T2Column2Row1 = 
+T2Column2Row2 = 
+T2Column2Row3 = 
+T2Column2Row4 = 
+T2Column2Row5 = 
+T2Column2Row6 = 
+
+
+T2Column3Row1 = 
+T2Column3Row2 = 
+T2Column3Row3 = 
+T2Column3Row4 = 
+T2Column3Row5 = 
+T2Column3Row6 = 
+
+
+T2Column4Row1 = 
+T2Column4Row2 = 
+T2Column4Row3 = 
+T2Column4Row4 = 
+T2Column4Row5 = 
+T2Column4Row6 = 
+
+
+
+; TAB 3
+; Prod SQL
+T3Column1Row1 = Basic New Wave
+T3Column1Row2 = Intersect Mattribute ID
+T3Column1Row3 = Union Mattribute ID
+T3Column1Row4 = Exclude Point Reason
+T3Column1Row5 = Exclude Points Earned
+T3Column1Row6 = Exclude Member Redeemed Gift
+
+
+T3Column2Row1 = AND Point Balance Equals
+T3Column2Row2 = AND Point Balance Between
+T3Column2Row3 = 
+T3Column2Row4 = 
+T3Column2Row5 = 
+T3Column2Row6 = 
+
+
+T3Column3Row1 = 
+T3Column3Row2 = 
+T3Column3Row3 = 
+T3Column3Row4 = 
+T3Column3Row5 = 
+T3Column3Row6 = 
+
+
+T3Column4Row1 = 
+T3Column4Row2 = 
+T3Column4Row3 = 
+T3Column4Row4 = 
+T3Column4Row5 = 
+T3Column4Row6 = 
+
+
+
+; TAB 4
+; VOP SQL
+T4Column1Row1 = 
+T4Column1Row2 = 
+T4Column1Row3 = 
+T4Column1Row4 = 
+T4Column1Row5 = 
+T4Column1Row6 = 
+
+
+T4Column2Row1 = 
+T4Column2Row2 = 
+T4Column2Row3 = 
+T4Column2Row4 = 
+T4Column2Row5 = 
+T4Column2Row6 = 
+
+
+T4Column3Row1 = 
+T4Column3Row2 = 
+T4Column3Row3 = 
+T4Column3Row4 = 
+T4Column3Row5 = 
+T4Column3Row6 = 
+
+
+T4Column4Row1 = 
+T4Column4Row2 = 
+T4Column4Row3 = 
+T4Column4Row4 = 
+T4Column4Row5 = 
+T4Column4Row6 = 
+
+
+
+;TAB 5
+; Clipboard Modification
+T5Column1Row1 = 
+T5Column1Row2 = 
+T5Column1Row3 = 
+T5Column1Row4 = 
+T5Column1Row5 = 
+T5Column1Row6 = 
+
+
+T5Column2Row1 = 
+T5Column2Row2 = 
+T5Column2Row3 = 
+T5Column2Row4 = 
+T5Column2Row5 = 
+T5Column2Row6 = 
+
+
+T5Column3Row1 = 
+T5Column3Row2 = 
+T5Column3Row3 = 
+T5Column3Row4 = 
+T5Column3Row5 = 
+T5Column3Row6 = 
+
+
+T5Column4Row1 = 
+T5Column4Row2 = 
+T5Column4Row3 = 
+T5Column4Row4 = 
+T5Column4Row5 = 
+T5Column4Row6 = 
+
+
+
+; TAB 6
+; Placeholder
+T6Column1Row1 = 
+T6Column1Row2 = 
+T6Column1Row3 = 
+T6Column1Row4 = 
+T6Column1Row5 = 
+T6Column1Row6 = 
+
+
+T6Column2Row1 = 
+T6Column2Row2 = 
+T6Column2Row3 = 
+T6Column2Row4 = 
+T6Column2Row5 = 
+T6Column2Row6 = 
+
+
+T6Column3Row1 = 
+T6Column3Row2 = 
+T6Column3Row3 = 
+T6Column3Row4 = 
+T6Column3Row5 = 
+T6Column3Row6 = 
+
+
+T6Column4Row1 = 
+T6Column4Row2 = 
+T6Column4Row3 = 
+T6Column4Row4 = 
+T6Column4Row5 = 
+T6Column4Row6 = 
+
+; ---- Define Available Tabs
+MultiToolTabs = ;Variable Setup||MMR HTML Gen|Prod Folders|Prod SQL ;|VOP Folders|VOP SQL|Clipboard Modification ;|TAB TEMPLATE
+MultiToolTabsOriginal = %MultiToolTabs%
+MultiToolTabsUserAccess = %MultiToolTabs%
+
+; ---- Define Developer Users & Provide Access to DEV Tab
+MultiToolTabs = %MultiToolTabsUserAccess%|DEV||
+MultiToolTabs = DEV
+EnableDevContent = 1
+;AuthorizedDevs = masmith|tproffer
+;IfInString, AuthorizedDevs, %A_Username%
+;	{
+;		MultiToolTabs = %MultiToolTabsUserAccess%|DEV||
+;		EnableDevContent = 1
+;	}
+
+; ---- OTHER VARIABLES
+MMRTemplateLocation = \\wallprdfps03.researchnow.com\Ops\CS\Prod\Promotions Files\Variable Substitution\MMR files\MMR Templates\MMR_Standard_Survey_Invite_2015.txt
+SQLJOBQ = Please enter the job number this SQL is for to have it automatically placed where needed.
+VariableSetupChoices = Custom Lookup|>JOB_TOUCH|___________________|Session Variables|>PIN||>VAR1|>VAR2|>VAR3|>VAR4|>VAR5|>FINDID|>PASS|>SEG|>SOURCE|>SUBSEG|>UID|>URL|___________________|Member Fact Variables|>AGE|>GENDER|>DMA|>COUNTY_FIPS|>POSTAL_CD|>ZIP_PLUS_6|>STATE_COUNTY_FIPS|>REGION_CD|>AGE_BAND|>ANNUAL_REVENUE_ID|>CBSA|>CITY|>COUNTRY_CD|>DIVISION_CD|>EDUCATION_ID|>FUNCTIONAL_ROLE_ID|>HISPANIC_ORIGIN_ID|>INDUSTRY_ID|>LANGUAGE|>LOCALE|>MARITAL_STATUS_ID|>PMSA|>PRIVATE_LABEL|>RACE_ID|>SOURCE_SPONSOR|>STATE|>INCOME_BAND_ID|>MSA|>NUM_OF_EMP_ID ;|___________________|Session|>BROADCAST_DATE|>DURATION|>EXPIRATION_DATE|>HONORARIA|>INVITATION_CODE|>LETTER_CD|>MMS_JOB|>NUM_MINUTES|>SUBJECT|>SUBJECT2|>SURVEY_TOPIC|___________________|Personal (PII)|>ADDRESS1|>ADDRESS2|>COMPANY|>PHONE|>PROFESSIONAL_SUFFIX|>SALUTATION|>USPS_CITY|>USPS_COUNTRY_CD|>USPS_STATE|>USPS_ZIP
+;PrimaryUIState = 0 ; default primary UI to disabled as it has not been setup yet and must be 0 for it to open.

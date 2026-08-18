@@ -1,0 +1,90 @@
+;--------------------------------------------------------------------
+;Standard Text Member Text Expansion
+;--------------------------------------------------------------------
+; STD EN\US Wave 1 Test Member ID's
+:*:xenustest::
+ToolTip, EN\US Wave 1 Test Member ID's
+SendInput, %ENUSTESTIDS%
+Sleep, 2000
+Tooltip
+Return
+
+; STD EN\CA Wave 1 Test Member ID's
+:*:xencatest::
+ToolTip, EN\CA Wave 1 Test Member ID's
+SendInput, %ENCATESTIDS%
+Sleep, 2000
+Tooltip
+Return
+
+; STD FR\CA Wave 1 Test Member ID's
+:*:xfrcatest::
+ToolTip, FR\CA Wave 1 Test Member ID's
+SendInput, %FRCATESTIDS%
+Sleep, 2000
+ToolTip
+Return
+
+; STD EN\MX Wave 1 Test Member ID's
+:*:xenmxtest::
+ToolTip, EN\MX Wave 1 Test Member ID's
+SendInput, %ENMXTESTIDS%
+Sleep, 2000
+Tooltip
+Return
+
+; STD EN\AE Wave 1 Test Member ID's
+:*:xenaetest::
+ToolTip, EN\AE Wave 1 Test Member ID's
+SendInput, %ENAETESTIDS%
+Sleep, 2000
+Tooltip
+Return
+
+; STD EN\AU Wave 1 Test Member ID's
+:*:xenautest::
+ToolTip, EN\AU Wave 1 Test Member ID's
+SendInput, %ENAUTESTIDS%
+Sleep, 2000
+Tooltip
+Return
+
+; STD PT\BR Wave 1 Test Member ID's
+:*:xptbrtest::
+ToolTip, PT\BR Wave 1 Test Member ID's
+SendInput, %PTBRTESTIDS%
+Sleep, 2000
+Tooltip
+Return
+
+; STD FR\FR Wave 1 Test Member ID's
+:*:xfrfrtest::
+ToolTip, FR\FR Wave 1 Test Member ID's
+SendInput, %FRFRTESTIDS%
+Sleep, 2000
+Tooltip
+Return
+
+; STD DE\DE Wave 1 Test Member ID's
+:*:xdedetest::
+ToolTip, DE\DE Wave 1 Test Member ID's
+SendInput, %DEDETESTIDS%
+Sleep, 2000
+Tooltip
+Return
+
+; STD EN\GB Wave 1 Test Member ID's
+:*:xengbtest::
+ToolTip, EN\GB Wave 1 Test Member ID's
+SendInput, %ENGBTESTIDS%
+Sleep, 2000
+Tooltip
+Return
+
+; STD NECTAR Wave 1 Test Member ID's
+:*:xnectartest::
+ToolTip, NECTAR Wave 1 Test Member ID's
+SendInput, %NECTARTESTIDS%
+Sleep, 2000
+Tooltip
+Return

@@ -1,0 +1,34 @@
+; -------- Template to add a new tab as needed.			
+Gui, Tab, TAB TEMPLATE			
+	;Column One (Left most)		
+	Gui, Add, Button, x22 y120 w160 h20 gT6Column1Row1 , %T6Column1Row1%
+	Gui, Add, Button, x22 y140 w160 h20 gT6Column1Row2 , %T6Column1Row2%
+	Gui, Add, Button, x22 y160 w160 h20 gT6Column1Row3 , %T6Column1Row3%
+	Gui, Add, Button, x22 y180 w160 h20 gT6Column1Row4 , %T6Column1Row4%
+	Gui, Add, Button, x22 y200 w160 h20 gT6Column1Row5 , %T6Column1Row5%
+	Gui, Add, Button, x22 y220 w160 h20 gT6Column1Row6 , %T6Column1Row6%
+			
+	;Column Two		
+	Gui, Add, Button, x192 y120 w160 h20 gT6Column2Row1 , %T6Column2Row1%
+	Gui, Add, Button, x192 y140 w160 h20 gT6Column2Row2 , %T6Column2Row2%
+	Gui, Add, Button, x192 y160 w160 h20 gT6Column2Row3 , %T6Column2Row3%
+	Gui, Add, Button, x192 y180 w160 h20 gT6Column2Row4 , %T6Column2Row4%
+	Gui, Add, Button, x192 y200 w160 h20 gT6Column2Row5 , %T6Column2Row5%
+	Gui, Add, Button, x192 y220 w160 h20 gT6Column2Row6 , %T6Column2Row6%
+			
+	;Column Three		
+	Gui, Add, Button, x362 y120 w160 h20 gT6Column3Row1 , %T6Column3Row1%
+	Gui, Add, Button, x362 y140 w160 h20 gT6Column3Row2 , %T6Column3Row2%
+	Gui, Add, Button, x362 y160 w160 h20 gT6Column3Row3 , %T6Column3Row3%
+	Gui, Add, Button, x362 y180 w160 h20 gT6Column3Row4 , %T6Column3Row4%
+	Gui, Add, Button, x362 y200 w160 h20 gT6Column3Row5 , %T6Column3Row5%
+	Gui, Add, Button, x362 y220 w160 h20 gT6Column3Row6 , %T6Column3Row6%
+			
+	;Column Four		
+	Gui, Add, Button, x532 y120 w160 h20 gT6Column4Row1 , %T6Column4Row1%
+	Gui, Add, Button, x532 y140 w160 h20 gT6Column4Row2 , %T6Column4Row2%
+	Gui, Add, Button, x532 y160 w160 h20 gT6Column4Row3 , %T6Column4Row3%
+	Gui, Add, Button, x532 y180 w160 h20 gT6Column4Row4 , %T6Column4Row4%
+	Gui, Add, Button, x532 y200 w160 h20 gT6Column4Row5 , %T6Column4Row5%
+	Gui, Add, Button, x532 y220 w160 h20 gT6Column4Row6 , %T6Column4Row6%
+Gui, Tab

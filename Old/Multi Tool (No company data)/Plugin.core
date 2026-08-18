@@ -1,0 +1,17 @@
+;#Include %A_ScriptDir%\Plugins\StandardTest.plugin
+#Include %A_ScriptDir%\Plugins\DebugInfo.plugin
+#Include %A_ScriptDir%\Plugins\HelpMenu.plugin
+#Include %A_ScriptDir%\Plugins\JobClip.plugin
+#Include %A_ScriptDir%\Plugins\ManageVariable.plugin
+#Include %A_ScriptDir%\Plugins\masShortkeys.plugin
+#Include %A_ScriptDir%\Plugins\ScreenerImport.plugin
+#Include %A_ScriptDir%\Plugins\SelfUpdate.plugin
+#Include %A_ScriptDir%\Plugins\MultiToolButtonActions.plugin
+#Include %A_ScriptDir%\Plugins\T1ProdFolders.plugin
+#Include %A_ScriptDir%\Plugins\T2VOPFolders.plugin
+#Include %A_ScriptDir%\Plugins\T3ProdSQL.plugin
+#Include %A_ScriptDir%\Plugins\T4VOPSQL.plugin
+#Include %A_ScriptDir%\Plugins\T5ClipboardModification.plugin
+#Include %A_ScriptDir%\Plugins\Clipnotes.plugin
+#Include %A_ScriptDir%\Plugins\T6.template
+#Include %A_ScriptDir%\Plugins\DevTab.plugin

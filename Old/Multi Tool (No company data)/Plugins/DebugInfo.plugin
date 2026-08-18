@@ -1,0 +1,46 @@
+;--------------------------------------------------------------------
+;ADHOC Debugging Section
+;--------------------------------------------------------------------
+^+!END::
+Gui, 1:Cancel
+Gui, 1:Destroy
+PrimaryUIState = 0
+InputBox, DevChallenge, DEBUG, CHALLENGE, HIDE, , , , , , , 
+If ErrorLevel
+	Return
+else
+IfEqual, DevChallenge, speakfriend
+	{
+		MultiToolTabs = %MultiToolTabsUserAccess%|DEV
+		EnableDevContent = 1
+		Return
+	}
+IfNotEqual, DevChallenge, speakfriend
+	{
+		MultiToolTabs = %MultiToolTabsUserAccess%
+		EnableDevContent = 0
+		Return
+	}
+Return
+
+
+UpdateUI:
+Gui, 1:Submit, NoHide
+Return
+
+
+
+
+UserStatus:
+If EnableDevContent, 1
+{
+MsgBox, 4096, Notification, `
+(
+DEBUG INFORMATION:
+________________________________________
+Logged in user: %A_UserName%
+Current status: %A_IsAdmin%
+________________________________________
+)
+}
+Return 

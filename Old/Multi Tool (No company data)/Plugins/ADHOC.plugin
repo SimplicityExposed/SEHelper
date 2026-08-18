@@ -1,0 +1,68 @@
+MsgBox, ADHOC LOADED
+Return
+^HOME:: Run, notepad.exe "%A_ScriptDir%\Plugins\ADHOC.plugin" ;Opens this ADHOC script in notepad.
+^+HOME:: Run, %A_ScriptDir%\
+^INS:: ;Reload ADHOC Script - Start
+MsgBox, ADHOC Now Reloading
+Reload
+Return ;Reload ADHOC Script - End
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+Autotrim, off
+;_________________________________________________________________
+; Playground below:
+
+F1::
+Gui, T:Default
+Gui, Add, CheckBox, x22 y120 w320 h-282 , CheckBox
+Gui, Add, GroupBox, x12 y110 w690 h130 , GroupBox
+Gui, Add, GroupBox, x12 y110 w190 h130 , Session Variables
+Gui, Add, CheckBox, x72 y130 w40 h20 , PIN
+Gui, Add, CheckBox, x22 y130 w50 h20 , VAR1
+Gui, Add, CheckBox, x22 y150 w50 h20 , VAR2
+Gui, Add, CheckBox, x22 y170 w50 h20 , VAR3
+Gui, Add, CheckBox, x22 y190 w50 h20 , VAR4
+Gui, Add, CheckBox, x22 y210 w50 h20 , VAR5
+Gui, Add, CheckBox, x142 y150 w60 h20 , FINDID
+Gui, Add, CheckBox, x152 y130 w50 h20 , PASS
+Gui, Add, CheckBox, x142 y190 w60 h20 , SEG
+Gui, Add, CheckBox, x72 y150 w70 h20 , SOURCE
+Gui, Add, CheckBox, x72 y190 w70 h20 , SUBSEG
+Gui, Add, CheckBox, x72 y170 w40 h20 , UID
+Gui, Add, CheckBox, x112 y130 w40 h20 , URL
+Gui, Add, GroupBox, x202 y110 w500 h130 , Member Fact Variables
+Gui, Add, CheckBox, x212 y130 w50 h20 , AGE
+Gui, Add, CheckBox, x562 y130 w80 h20 , AGE_BAND
+Gui, Add, CheckBox, x452 y210 w140 h20 , ANNUAL_REVENUE_ID
+Gui, Add, CheckBox, x622 y190 w50 h20 , CBSA
+Gui, Add, CheckBox, x642 y130 w50 h20 , CITY
+Gui, Add, CheckBox, x522 y170 w100 h20 , COUNTRY_CD
+Gui, Add, CheckBox, x592 y210 w100 h20 , COUNTY_FIPS
+Gui, Add, CheckBox, x592 y150 w90 h20 , DIVISION_CD
+Gui, Add, CheckBox, x402 y130 w50 h20 , DMA
+Gui, Add, CheckBox, x392 y150 w100 h20 , EDUCATION_ID
+Gui, Add, CheckBox, x212 y190 w140 h20 , FUNCTIONAL_ROLE_ID
+Gui, Add, CheckBox, x262 y130 w70 h20 , GENDER
+Gui, Add, CheckBox, x492 y190 w130 h20 , HISPANIC_ORIGIN_ID
+Gui, Add, CheckBox, x492 y150 w100 h20 , INDUSTRY_ID
+Gui, Add, CheckBox, x352 y170 w80 h20 , LANGUAGE
+Gui, Add, CheckBox, x502 y130 w60 h20 , LOCALE
+Gui, Add, CheckBox, x352 y190 w140 h20 , MARITAL_STATUS_ID
+Gui, Add, CheckBox, x452 y130 w50 h20 , PMSA
+Gui, Add, CheckBox, x432 y170 w90 h20 , POSTAL_CD
+Gui, Add, CheckBox, x342 y210 w110 h20 , PRIVATE_LABEL
+Gui, Add, CheckBox, x332 y130 w70 h20 , RACE_ID
+Gui, Add, CheckBox, x212 y150 w90 h20 , REGION_CD
+Gui, Add, CheckBox, x212 y210 w130 h20 , SOURCE_SPONSOR
+Gui, Add, CheckBox, x622 y170 w60 h20 , STATE
+Gui, Add, CheckBox, x212 y170 w140 h20 , STATE_COUNTY_FIPS
+Gui, Add, CheckBox, x302 y150 w90 h20 , ZIP_PLUS_6
+Gui, Add, CheckBox, x112 y170 w90 h20 , JOB_TOUCH
+Gui, Add, Button, w120 h20 , Setup Chosen Vars
+; Generated using SmartGUI Creator 4.0
+Gui, Show, x255 y213 h264 w719, New GUI Window
+Return
+
+
+

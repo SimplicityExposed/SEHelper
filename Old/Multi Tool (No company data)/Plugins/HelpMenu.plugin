@@ -1,0 +1,51 @@
+;--------------------------------------------------------------------
+;Help Menu
+;--------------------------------------------------------------------
+HelpMenu:
+
+MsgBox, 4096, Notification, `
+(
+Available Hotkeys:
+- These will activate when you press the key.
+Shift+F1 = Autofill Screener Import
+Ctrl+Shift+S = Save contents of clipboard to secondary clipboard
+Ctrl+Shift+V = Auto-type contents of secondary clipboard.
+Alt+V = Auto-type contents of secondary clipboard with * prefix.
+_______________
+Shortkeys:
+- These will auto-type text when you type them in a text field.
+- Type the shortkey as it appears below to automatically enter notes.
+
+> Wave 1 Test Member ID's - Language \ Locale Specific
+XENUSTEST - English \ United States
+XENCATEST - English \ Canada
+XFRCATEST - French \ Canada
+XENMXTEST - English \ Mexico
+XENAETEST - English \ United Arab Emirates
+XENAUTEST - English \ Australia
+XPTBRTEST - Portuguese \ Brazil
+XFRFRTEST - French \ France
+XDEDETEST - German \ Germany
+XENGBTEST - English \ Great Britain
+XNECTARTEST - English \ Great Britain (NECTAR)
+
+> Quick Notes for Task Completion
+XCOPY
+XJOB
+XMVS
+XW1
+XSCREEN
+XQM
+X-QM
+X+QM
+XEXPIRE
+XUNEXPIRE
+XOVERNIGHT
+XNOVARS
+__
+Version: V%MVersion% | Author: %Author%
+)
+Return
+
+
+

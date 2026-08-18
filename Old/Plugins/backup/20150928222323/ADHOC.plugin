@@ -1,0 +1,884 @@
+MsgBox, ADHOC LOADED
+preventScreenSaverVar := false ; Boolean for Screen-saver prevention label (subroutine). True = running/enabled.
+SetTimer, preventScreenSaver, 60000 ; Screen-saver launch prevention label (subroutine), checks every 1 minute
+Return
+^HOME:: Run, notepad++.exe "C:\Users\masmith\MacroSuite\Plugins\ADHOC.plugin" ;Opens this ADHOC script in notepad.
+^+HOME:: Run, %A_ScriptDir%\
+^INS:: ;Reload ADHOC Script - Start
+MsgBox, ADHOC Now Reloading
+Reload
+Return ;Reload ADHOC Script - End
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+Autotrim, on
+#WinActivateForce
+;_________________________________________________________________
+; Playground below: 
+
+^!F1:: 
+IfEqual, JobClip, %Clipboard%
+	MsgBox % Values are identical.
+else
+	MsgBox % Values do not match.
+Return
+
+
+^5::
+global preventScreenSaverVar := !preventScreenSaverVar
+if (global preventScreenSaverVar) {
+	TrayTip, Screen Saver Prevention, Enabled, 2, 17
+}
+else { TrayTip, Screen Saver Prevention, Disabled, 2, 17 
+	}
+return
+
+;ScreenSaver launch prevention subroutine
+preventScreenSaver:
+if (global preventScreenSaverVar) {
+	MouseMove, 1, 0, 1, R  ;Move the mouse one pixel to the right
+	MouseMove, -1, 0, 1, R ;Move the mouse back one pixel
+}
+return
+
+; PARAMETERS Grunt Work (Answer Option Pasting)
+;F1::
+SendInput, %ParameterKey%{TAB}%ParameterKey%{TAB}%ParameterName%{TAB}%ParameterName%
+Return
+
+; PARAMETERS Grunt Work (Get Parameter Name & Number from Spreadsheet)
+;F2::
+Clipboard = ;
+SendInput, ^c
+ClipWait
+ParameterKey := JobClipFunction(Clipboard)
+Clipboard = ;
+SendInput, {Right}
+SendInput, ^c
+ClipWait
+ParameterName := JobClipFunction(Clipboard)
+Return
+
+;F3::
+SendInput, {END}
+Return
+
+:*:xidk::
+SendInput, I don't know when I'm transitioning to overnights yet. I have to wait until Anthony travels to APAC to train them before moving over.
+Return
+
+;F1::
+WaveLoopEnabled = 1
+Goto, WAVELOOP
+Return
+
+;F2::
+Wave = 228
+WaveLoopEnabled = 0
+Return
+
+WAVELOOP:
+IfEqual, WaveLoopEnabled, 0
+{
+	Return
+	Soundbeep
+	Return
+}
+EnvAdd, Wave, 1
+Tooltip, Wave %Wave%
+IfEqual, Wave, 1298
+{
+	MsgBox, DONE with MVS Setup.
+	WaveLoopEnabled = 0
+	Return
+}
+Clipboard = ;
+TempMVSLink = http://internal.e-rewards.com/variablesubstitution/assignvars.jsp?addwave=true&job=364543&variable=21&wave=%Wave%
+wb.Navigate(TempMVSLink)
+IELoad(wb)
+Goto, WAVELOOP
+Return
+
+^!Right::
+Goto, CommaDelimitedClip
+Return
+
+
+; Promote link
+; http://internal.e-rewards.com/surveymgmt/servlet/PromoteController?type=OFFER&from=MODEL_OFFICE&to=PRODUCTION&key=491003&userId=masmith
+
+^+w:: ;Prevents ^+w hotkey from closing firefox when activating Firefox tab groups (^+e)
+Return
+
+^Space::WinMinimize, A ; Minimize currently active window.
+Return
+
+!Space::WinSet, AlwaysOnTop, toggle, A ; Pin active window to top of screen.
+Return
+
+Esc::
+;W1MemIDDelimited = 280150|2518615|3943555|3943556|3943558|3943561|3943562|3943563|3943567|3943569|3943571|3943572|5914131|33188435|33189592|33189678|2736200|31830632|33018714|34303047
+;W1MemIDCount = %W1MemIDDelimited%
+;StringReplace W1MemIDCount,W1MemIDCount,|,|,UseErrorLevel
+;MemberIDCount = %ErrorLevel%
+;MemberIDCount += 1
+;MsgBox, Test %MemberIDCount%
+SendInput, {Backspace}
+Return
+
+^+p::
+WinSet, Style, -0xC00000,a ; remove the titlebar and border(s) 
+;WinMove, a, , , , 500, 272 ; X - Y - H - W
+return
+
+; ------------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
+; Bindings
+; ------------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
+;Goto, QuickMMROffer ; Instant Setup of MMR Job Offer
+;Goto, SQLDebug ; To Character # code for new wave verification. Configurable.
+;Goto, MVSLoadScreen ; Go straight to MVS load screen.
+;Goto, JobInventoryCycle ; One key job inventory setup macro.
+;Goto, QuickSubtraction ; Quickly subtract specified number from highlighted text.
+;Goto, QuickAddition ; Quickly add specified number to highlighted text.
+;Goto, STSPEG ; STS Manual Pause Macro
+;Goto, MakePluginSet ; Depreciated but creates all files for a new plugin.
+;Goto, CodeGenerator ; Generates code based on entered content. Configurable.
+;Goto, VOPExitCreator ; Creates a VOP exit page in Filezilla FTP Folder. Configurable.
+;Goto, MMRWaveEntry ; Fill in waves 1, 3-10 in Survey management
+;Goto, VOPTermSQL ; Insert MCID check SQL for DB2
+
+^!Up::
+;Goto, QuickCodePartnerIDChange
+;Goto, ClipFormatTest ;QuickCodePartnerIDChange
+wb := ComObjCreate("InternetExplorer.Application")
+wb.Visible := True
+wb.Navigate("https://intranet.researchnow.com/ProjectPendings.aspx")
+;wb.Navigate("http://compass.e-rewards.com/sbm/bpmportal/myhome/viewdashboard.portal")
+;MsgBox, wb variable =`n%wb%
+; This code will click promote button when put into URL Bar of Survey Management
+; javascript: document.getElementsByName('promote')[0].click()
+; This code is the final Promote button, needs offer ID & UserID replaced to function
+; http://internal.e-rewards.com/surveymgmt/servlet/PromoteController?type=OFFER&from=MODEL_OFFICE&to=PRODUCTION&key=490029&userId=masmith
+
+SoundBeep
+Return
+
+^+Down::
+Goto, ClipFormatTest  ; QuickCodePartnerIDChange
+Return
+
+^+End:: ; notepad++.exe 
+Run, "C:\Users\masmith\Resources\.Department - Production\.Project Resources\AHK Macro Development\Development\Job Inventory Automation Tool\JobInventoryAutomation.ahk"
+;WinActivate, %wb%, 
+;Goto, TestLoop 
+;javascript: alert(document.all.query.value)
+;wb := IEGet()
+;MsgBox % wb.document.all.query.value
+;wb.Navigate("javascript: document.getElementsByName('promote')[0].click()")
+;IELoad(wb)
+;Soundbeep
+Return
+
+
+ProdQueueRefresh:
+wb.Navigate("javascript: document.getElementsByName('ctl00$ContentPlaceHolderMain$Button1')[0].click()")  ; Refresh: javascript: document.location.reload(true)
+;wb.Navigate("javascript: document.location.reload(true)")
+IELoad(wb)
+SoundBeep
+;Sleep, 30000
+;Goto,ProdQueueRefresh
+Return
+
+
+
+TestLoop:
+HeaderType := "Content-Type: application/x-www-form-urlencoded"
+OMGURL := "http://internal.e-rewards.com/surveymgmt/SaveOffer"
+OMGPostData := "type=OFFER&id=NEW&database=2&offer=NEW&redirect=%2Fsurveymgmt%2Foffer%2FeditOffer.htm%3Foffer%3D&new=TRUE&private_label_id=1&oll_visible_DA_DK=on&translation_id_DA_DK=&translate_language_locale_DA_DK=EN_US&oll_visible_NL_NL=on&translation_id_NL_NL=&translate_language_locale_NL_NL=EN_US&oll_visible_EN_AU=on&translation_id_EN_AU=&translate_language_locale_EN_AU=EN_US&oll_visible_EN_BE=on&translation_id_EN_BE=&translate_language_locale_EN_BE=EN_US&oll_visible_EN_CA=on&translation_id_EN_CA=&translate_language_locale_EN_CA=EN_US&oll_visible_EN_FR=on&translation_id_EN_FR=&translate_language_locale_EN_FR=EN_US&oll_visible_EN_DE=on&translation_id_EN_DE=&translate_language_locale_EN_DE=EN_US&oll_visible_EN_GB=on&translation_id_EN_GB=&translate_language_locale_EN_GB=EN_US&oll_visible_EN_IN=on&translation_id_EN_IN=&translate_language_locale_EN_IN=EN_US&oll_visible_EN_NL=on&translation_id_EN_NL=&translate_language_locale_EN_NL=EN_US&oll_visible_EN_NZ=on&translation_id_EN_NZ=&translate_language_locale_EN_NZ=EN_US&oll_visible_EN_SA=on&translation_id_EN_SA=&translate_language_locale_EN_SA=EN_US&oll_visible_EN_ES=on&translation_id_EN_ES=&translate_language_locale_EN_ES=EN_US&oll_visible_EN_CH=on&translation_id_EN_CH=&translate_language_locale_EN_CH=EN_US&languageLocale_15=EN_US&oll_visible_EN_US=on&oll_visible_EN_AE=on&translation_id_EN_AE=&translate_language_locale_EN_AE=EN_US&oll_visible_FI_FI=on&translation_id_FI_FI=&translate_language_locale_FI_FI=EN_US&oll_visible_FR_BE=on&translation_id_FR_BE=&translate_language_locale_FR_BE=EN_US&oll_visible_FR_CA=on&translation_id_FR_CA=&translate_language_locale_FR_CA=EN_US&oll_visible_FR_FR=on&translation_id_FR_FR=&translate_language_locale_FR_FR=EN_US&oll_visible_FR_CH=on&translation_id_FR_CH=&translate_language_locale_FR_CH=EN_US&oll_visible_DE_DE=on&translation_id_DE_DE=&translate_language_locale_DE_DE=EN_US&oll_visible_DE_CH=on&translation_id_DE_CH=&translate_language_locale_DE_CH=EN_US&oll_visible_NO_NO=on&translation_id_NO_NO=&translate_language_locale_NO_NO=EN_US&oll_visible_PT_BR=on&translation_id_PT_BR=&translate_language_locale_PT_BR=EN_US&oll_visible_ES_MX=on&translation_id_ES_MX=&translate_language_locale_ES_MX=EN_US&oll_visible_ES_ES=on&translation_id_ES_ES=&translate_language_locale_ES_ES=EN_US&oll_visible_ES_US=on&translation_id_ES_US=&translate_language_locale_ES_US=EN_US&oll_visible_SV_SE=on&translation_id_SV_SE=&translate_language_locale_SV_SE=EN_US&desc=OfferDesc&partners=127&offer_type=26&earnnow_enrollment_wave=&auto_credit=N&auto_credit_version=2&auto_credit_domain=&localizationTypeCode=C&offer_text_language_locale_1=EN_US&offer_text_desc_1=OfferText&offer_pageflow_template=117914&enroll_startmonth=10&enroll_startday=27&enroll_startyear=2014&enroll_starthour=2_PM&enrollment_start_date=&enroll_endmonth=1&enroll_endday=25&enroll_endyear=2015&enroll_endhour=12_PM&enrollment_end_date=&enrollment_number_welcome_gifts=1&enrollment_available_gift_count=0&promotion_job_1=369117&promotion_id_1=&promotion_language_locale_1=EN_US&wave_start_date_1=&wave_end_date_1=&wave_start_date_1=&wave_end_date_1="
+wb.Navigate(OMGURL, , , OMGPostData, HeaderType)
+;Link1 = 
+;Link2 = www.starwars.com
+;wb.Navigate("http://internal.e-rewards.com/surveymgmt/SaveOffer?type=OFFER&id=NEW&database=2&offer=NEW&redirect=%2Fsurveymgmt%2Foffer%2FeditOffer.htm%3Foffer%3D&new=true&private_label_id=1&oll_visible_DA_DK=on&translation_id_DA_DK=&translate_language_locale_DA_DK=EN_US&oll_visible_NL_NL=on&translation_id_NL_NL=&translate_language_locale_NL_NL=EN_US&oll_visible_EN_AU=on&translation_id_EN_AU=&translate_language_locale_EN_AU=EN_US&oll_visible_EN_BE=on&translation_id_EN_BE=&translate_language_locale_EN_BE=EN_US&oll_visible_EN_CA=on&translation_id_EN_CA=&translate_language_locale_EN_CA=EN_US&oll_visible_EN_FR=on&translation_id_EN_FR=&translate_language_locale_EN_FR=&oll_visible_EN_DE=on&translation_id_EN_DE=&translate_language_locale_EN_DE=&oll_visible_EN_GB=on&translation_id_EN_GB=&translate_language_locale_EN_GB=&oll_visible_EN_IN=on&translation_id_EN_IN=&translate_language_locale_EN_IN=&oll_visible_EN_NL=on&translation_id_EN_NL=&translate_language_locale_EN_NL=&oll_visible_EN_NZ=on&translation_id_EN_NZ=&translate_language_locale_EN_NZ=&oll_visible_EN_SA=on&translation_id_EN_SA=&translate_language_locale_EN_SA=&oll_visible_EN_ES=on&translation_id_EN_ES=&translate_language_locale_EN_ES=&oll_visible_EN_CH=on&translation_id_EN_CH=&translate_language_locale_EN_CH=&languageLocale_15=&oll_visible_EN_US=on&oll_visible_EN_AE=on&translation_id_EN_AE=&translate_language_locale_EN_AE=&oll_visible_FI_FI=on&translation_id_FI_FI=&translate_language_locale_FI_FI=EN_US&oll_visible_FR_BE=on&translation_id_FR_BE=&translate_language_locale_FR_BE=EN_US&oll_visible_FR_CA=on&translation_id_FR_CA=&translate_language_locale_FR_CA=EN_US&oll_visible_FR_FR=on&translation_id_FR_FR=&translate_language_locale_FR_FR=EN_US&oll_visible_FR_CH=on&translation_id_FR_CH=&translate_language_locale_FR_CH=EN_US&oll_visible_DE_DE=on&translation_id_DE_DE=&translate_language_locale_DE_DE=EN_US&oll_visible_DE_CH=on&translation_id_DE_CH=&translate_language_locale_DE_CH=EN_US&oll_visible_NO_NO=on&translation_id_NO_NO=&translate_language_locale_NO_NO=EN_US&oll_visible_PT_BR=on&translation_id_PT_BR=&translate_language_locale_PT_BR=EN_US&oll_visible_ES_MX=on&translation_id_ES_MX=&translate_language_locale_ES_MX=EN_US&oll_visible_ES_ES=on&translation_id_ES_ES=&translate_language_locale_ES_ES=EN_US&oll_visible_ES_US=on&translation_id_ES_US=&translate_language_locale_ES_US=EN_US&oll_visible_SV_SE=on&translation_id_SV_SE=&translate_language_locale_SV_SE=EN_US&desc=TBD%3A+Job+Inventory&partners=127&offer_type=26&earnnow_enrollment_wave=&auto_credit=N&auto_credit_version=2&auto_credit_domain=&localizationTypeCode=C&offer_text_language_locale_1=EN_US&offer_text_desc_1=TBD%3A+Job+Inventory&offer_pageflow_template=117914&enroll_startmonth=10&enroll_startday=24&enroll_startyear=2014&enroll_starthour=1_AM&enrollment_start_date=&enroll_endmonth=&enroll_endday=&enroll_endyear=&enroll_endhour=&enrollment_end_date=&enrollment_number_welcome_gifts=1&enrollment_available_gift_count=0&promotion_job_1=366879&promotion_id_1=&promotion_language_locale_1=EN_US&wave_start_date_1=&wave_end_date_1=&wave_start_date_1=&wave_end_date_1=")
+;IELoad(wb)
+;CurrentURL := wb.LocationURL()
+;MsgBox, Document Output Test:`n%CurrentURL%
+;wb.Navigate(Link2)
+;IELoad(wb)
+;SoundBeep
+Return
+
+
+IEGet(Name="")        ;Retrieve pointer to existing IE window/tab
+{
+	IfEqual, Name,, WinGetTitle, Name, ahk_class IEFrame
+		Name := ( Name="New Tab - Windows Internet Explorer" ) ? "about:Tabs"
+	: RegExReplace( Name, " - (Windows|Microsoft) Internet Explorer" )
+	For wb in ComObjCreate( "Shell.Application" ).Windows
+		If ( wb.LocationName = Name ) && InStr( wb.FullName, "iexplore.exe" )
+			Return wb
+} ;written by Jethrow
+
+IELoad(wb)    ;You need to send the IE handle to the function unless you define it as global.
+{
+	If !wb    ;If wb is not a valid pointer then quit
+		Return False
+	Loop    ;Otherwise sleep for .1 seconds untill the page starts loading
+		Sleep,100
+	Until (wb.busy)
+	Loop    ;Once it starts loading wait until completes
+		Sleep,100
+	Until (!wb.busy)
+	Loop    ;optional check to wait for the page to completely load
+		Sleep,100
+	Until (wb.Document.Readystate = "Complete")
+	Return True
+}
+
+
+!F1::
+SoundBeep
+SoundBeep
+IfEqual, QMonitorActive, 1
+{
+	QMonitorActive = 0
+	SetTimer, ProdQueueRefresh, Off
+	ToolTip, Queue Monitor Deactivated
+	Sleep, 3000
+	Tooltip
+	Return
+}
+Else
+{
+	QMonitorActive = 1
+	SetTimer, ProdQueueRefresh, 30000
+	ToolTip, Queue Monitor Activated
+	Sleep, 3000
+	Tooltip
+	Return
+}
+Return
+
+!Down::
+StopInventory = 1
+;LightTouchCycle = 0
+Return
+
+;Left::
+;LightTouchCycle -= 1
+Return
+
+;Right::
+TestURL1 = www.starwars.com
+TestURL2 = www.google.com
+ExampleRun:
+IfEqual, StopInventory, 1
+{  
+	MsgBox, STOP COMMAND RECEIVED
+	Return
+}
+wb.Navigate(TestURL1)
+IELoad(wb)
+wb.Navigate(TestURL2)
+IELoad(wb)
+wb.Navigate(TestURL1)
+IELoad(wb)
+Goto, ExampleRun
+;LightTouchCycle += 1
+Return
+
+;F1::
+QuickEntry32 = %Clipboard%
+StringReplace, QuickEntry32, QuickEntry32, `r`n, , All
+StringReplace, QuickEntry32, QuickEntry32, %A_Tab%, %A_Space%`;, All
+FlowConsOutput = `%FlowConsOutput`%
+FlowCompOutput = `%FlowCompOutput`%
+FlowSIDOutput = `%FlowSIDOutput`%
+Clipboard = `
+(
+		IfEqual, OfferFlowID, %JobClip%
+			{
+				OfferFlowCommand = `%OfferFlowLink`%%Clipboard%
+				Goto, CreateMVSCommand
+				Return
+			}
+
+)
+SendInput, {TAB 2}^v
+Return
+
+;F2::
+StringReplace, Clipboard, Clipboard, &, `r`n&, All
+StringReplace, Clipboard, Clipboard, =, =%A_Tab%, All
+Return
+
+;F3::
+StringReplace, Clipboard, Clipboard, %A_Tab%, , All
+StringReplace, Clipboard, Clipboard, `r`n, , All
+Return
+
+;F4::
+Clipboard = http://internal.e-rewards.com/surveymgmt/SaveOffer?%Clipboard%
+Return
+
+;F9::
+Goto, MVSLoadScreen ; Go straight to MVS load screen.
+Return
+
+;F10::
+Goto, VOPExitCreator ; Creates a VOP exit page in Filezilla FTP Folder. Configurable.
+Return
+
+F11::
+Goto, MMRWaveEntry ; Fill in waves 1, 3-10 in Survey management
+Return
+
+;F12::
+Goto, QuickMMROffer ; Instant Setup of MMR Job Offer
+Return
+
++F4::
+Goto, VOPExitCreator
+Return
+
+; ------------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
+; Shortkey Content
+; ------------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
+
+
+
+
+:*:xrn::
+SendInput, ^v@researchnow.com
+Return
+
+:*:xftp::
+SendInput, U:\.Department - VOP\VOP Exit Folder\
+Return
+
+:*:xmydir::
+SendInput, I:\CS\ProdMgmt\masmith
+Return
+
+:*:vopppm::
+SendInput `
+(
+CREATE TABLE TEMP_LRC_04112013_17365585 (
+SUBSID INT GENERATED ALWAYS AS IDENTITY (START WITH 100000, INCREMENT BY 1) NOT NULL,
+ftouch VARCHAR (255) DEFAULT NULL,
+id VARCHAR (255) DEFAULT NULL,
+DATEADDED TIMESTAMP DEFAULT NULL
+`) IN USERTMP32
+)
+Return
+
+:: vop ppm with multiple links::
+SendInput `
+(
+CREATE TABLE TEMP_LRC_04112013_17365585 (
+SUBSID INT GENERATED ALWAYS AS IDENTITY (START WITH 100000, INCREMENT BY 1) NOT NULL, 
+LINK CHARACTER VARYING (255) NOT NULL,
+ftouch VARCHAR (255) DEFAULT NULL,
+id VARCHAR (255) DEFAULT NULL,
+DATEADDED TIMESTAMP DEFAULT NULL
+`) IN USERTMP32
+)
+Return
+
+:*:xvoporganize::
+SendInput `
+(
+http://www.researchnowsurveys.com/survey/%Clipboard%/enter.asp?ftouch=xxx&id=xxx
+ExecID: %JobClip%
+Range: XXX-YYY
+)
+Return
+
+:*:xeriorganize::
+SendInput `
+(
+http://www.researchnowsurveys.com/survey/%Clipboard%/enter.asp?ftouch=<`%FTOUCHCODE`%>&id=<`%PIN`%>
+ExecID: %JobClip%
+Range: XXX-YYY
+)
+Return
+
+;Daily DE Report status notification email auto-fill
+:*:xdestatus::
+InputBox, DESTATUSJNUM, Job Number, What is the job number?
+SendInput DE for job(s) in Variable Error Status{TAB}
+SendInput `
+(
+Hello,
+
+When a job runs out of the variables that were loaded, scout gets put into an error and shows up on a report.  The job(s) listed below have had this occur.  Please load additional variables to the listed job(s) and then submit an un-expire task requesting to have wave 2 un-expired to have the scout activity resumed.  For now, the listed job(s) have been expired to prevent further occurrences of the error caused by not having enough variables loaded.
+
+Job#: %DESTATUSJNUM%
+
+Thank you,
+Michael A. Smith
+)
+Return
+
+; Simple Date Timestamp "MM/DD/YYYY"
+:*:xdate::
+xdateClip = %Clipboard%
+Clipboard = %A_MM%/%A_DD%/%A_YYYY%
+Send, ^v
+Sleep, 150
+Clipboard = %xdateClip%
+Return
+
+;Personal Notation Timestamp
+:*:xsig::
+xsigClip = %Clipboard%
+Clipboard = -%A_Username% (%A_DDD%, %A_MM%/%A_DD%/%A_YYYY% @ %A_Hour%:%A_Min% CST)
+Send, ^v
+Sleep, 150
+Clipboard = %xsigClip%
+Return
+
+;ED Post Update Timestamp for Changelog
+:*:xedupdate::
+xsigClip = %Clipboard%
+Clipboard = %A_MM%/%A_DD%@%A_Hour%:%A_Min% CST
+Send, ^v
+Sleep, 150
+Clipboard = %xsigClip%
+Return
+
+; ------------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
+; HOTKEYABLE MACRO CODES
+; ------------------------------------------------------------------------------
+; ------------------------------------------------------------------------------
+
+;VOP Term Check SQL
+VOPTermSQL:
+MailCampID = %Clipboard%
+Clipboard = SELECT * FROM SURVEY WHERE MAILCAMPAIGNID = %MailCampID%
+Send ^v
+Sleep, 150
+Clipboard = %MailCampID%
+Return
+
+; JOB Inventory
+
+LightTouchCycle:
+IfEqual, StopInventory, 1
+{  
+	MsgBox, STOP COMMAND RECEIVED
+	Return
+}
+IfInString, Clipboard, STOP
+{
+	MsgBox, END OF JOBS
+	Return
+}
+IfEqual, LightTouchCycle, 0
+{
+	LightTouchCycle = 1
+	Goto, JobInventoryGetandClone
+	Return
+}
+IfEqual, LightTouchCycle, 1
+{
+	LightTouchCycle = 2
+	Goto, UpdateInventoryOffer
+	Return
+}
+IfEqual, LightTouchCycle, 2
+{
+	LightTouchCycle = 3
+	Goto, SubmitJobInventory
+	Return
+}
+IfEqual, LightTouchCycle, 3
+{
+	LightTouchCycle = 4
+	Goto, PromoteJobInventory
+	Return
+}
+IfEqual, LightTouchCycle, 4
+{
+	LightTouchCycle = 5
+	Goto, LightTouchLoadTestMembers
+	Return
+}
+IfEqual, LightTouchCycle, 5
+{
+	LightTouchCycle = 6
+	Goto, LightTouchSubmitTestMembers
+	Return
+}
+IfEqual, LightTouchCycle, 6
+{
+	LightTouchCycle = 7
+	Goto, LightTouchCreateJobTouchVar
+	Return
+}
+;IfEqual, LightTouchCycle, 3
+;	{
+	;		LightTouchCycle = 0
+	;		Goto, LightTouchPromoteJobTouchVar
+	;		Return
+	;	}
+	LightTouchCycle = 0
+	Goto, LightTouchCycle
+	Return
+	
+	
+	LightTouchLoadTestMembers:
+	WinActivate, , Internet Explorer
+	sendInput, {Alt Down}d{Alt Up}
+	Clipboard = http://internal.e-rewards.com/promo-cms/bin/qanswer.pl?jobnbr=%JobClip%&wavenbr=1&smembersid=280150`%0D`%0A2518615`%0D`%0A3943555`%0D`%0A3943556`%0D`%0A3943558`%0D`%0A3943561`%0D`%0A3943562`%0D`%0A3943563`%0D`%0A3943567`%0D`%0A3943569`%0D`%0A3943571`%0D`%0A3943572`%0D`%0A5914131`%0D`%0A33188435`%0D`%0A33189592`%0D`%0A33189678`%0D`%0A2736200`%0D`%0A31830632`%0D`%0A33018714`%0D`%0A34303047&seedLevel=1&submit=Get+Results
+	SendInput, ^v
+	SendInput, {ENTER}
+	IELoad(wb)
+	Goto, LightTouchCycle
+	Return
+	
+	LightTouchSubmitTestMembers:
+	WinActivate, , Internet Explorer
+	Clipboard = http://internal.e-rewards.com/promo-cms/bin/seg_insert.pl?jobnbr=%JobClip%&segcnt=20&wavenbr=1&submit=Commit+Segmentation+of+20+entries+to+Production+DataBase
+	SendInput, {Alt Down}d{Alt Up}
+	SendInput, ^v
+	SendInput, {ENTER}
+	IELoad(wb)
+	Goto, LightTouchCycle
+	Return
+	
+	LightTouchCreateJobTouchVar:
+	WinActivate, , Internet Explorer
+	Clipboard = http://internal.e-rewards.com/variablesubstitution/database_p.jsp?database=MODEL_OFFICE&redirect=assignvars.jsp?job=%JobClip%
+	SendInput, {Alt Down}d{Alt Up}{Ctrl Down}v{Ctrl Up}{enter}
+	Sleep, 1000
+	WinActivate, , Internet Explorer
+	Clipboard = http://internal.e-rewards.com/variablesubstitution/assignvars.jsp?job=%JobClip%&env=MODEL_OFFICE&addvariables=100&type=2&add=Add+Variable
+	SendInput, {Alt Down}d{Alt Up}{Ctrl Down}v{Ctrl Up}{enter}
+	Sleep, 1000
+	WinActivate, , Internet Explorer
+	Clipboard = http://internal.e-rewards.com/variablesubstitution/assignvars.jsp?job=%JobClip%&env=MODEL_OFFICE&variables=100&type100=2&email100=Y&micro100=Y&submit=Submit+Changes
+	SendInput, {Alt Down}d{Alt Up}{Ctrl Down}v{Ctrl Up}{enter}
+	Sleep, 1000
+	WinActivate, , Internet Explorer
+	Clipboard = http://internal.e-rewards.com/variablesubstitution/assignvars.jsp?job=%JobClip%&env=MODEL_OFFICE&variables=100&type100=2&email100=Y&micro100=Y&promote=Promote+Variables
+	SendInput, {Alt Down}d{Alt Up}{Ctrl Down}v{Ctrl Up}{enter}
+	IELoad(wb)
+	Goto, LightTouchCycle
+	Return
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	JobInventoryCycle:
+	IfEqual, StopInventory, 1
+	{
+		MsgBox, STOP COMMAND RECEIVED - %A_Hour%:%A_Min% CST
+		Return
+	}
+	IfInString, Clipboard, STOP
+	{
+		MsgBox, END OF JOBS - %A_Hour%:%A_Min% CST
+		Return
+	}
+	IfEqual, JobInventoryCycle, 0
+	{
+		JobInventoryCycle = 1
+		Goto, JobInventoryGetandClone
+		Return
+	}
+	IfEqual, JobInventoryCycle, 1
+	{
+		JobInventoryCycle = 2
+		Goto, UpdateInventoryOffer
+		Return
+	}
+	IfEqual, JobInventoryCycle, 2
+	{
+		JobInventoryCycle = 3
+		Goto, SubmitJobInventory
+		Return
+	}
+	IfEqual, JobInventoryCycle, 3
+	{
+		JobInventoryCycle = 0
+		Goto, PromoteJobInventory
+		Return
+	}
+	JobInventoryCycle = 0
+	Goto, JobInventoryCycle
+	Return
+	
+	JobInventoryGetandClone:
+	; RETRIEVE NEXT JOB NUMBER
+	Clipboard = ;
+	WinActivate, Job Inventory Creation.xlsx - Excel
+	SendInput, {Down}
+	SendInput, ^c
+	Clipwait
+	IfInString, Clipboard, STOP
+	{
+		MsgBox, END OF JOBS - %A_Hour%:%A_Min% CST
+		Return
+	}
+	JobClip = %Clipboard%
+	StringReplace, JobClip, JobClip, `r, , All
+	StringReplace, JobClip, JobClip, `n, , All
+	StringReplace, JobClip, JobClip, %A_Tab%, , All
+	Clipboard = ;
+	; CLONE JOB OFFER
+	WinActivate, , Internet Explorer
+	CloneOfferID = 505864
+	sendInput, {Alt Down}d{Alt Up}
+	Clipboard = http://internal.e-rewards.com/surveymgmt/CloneOffer?database=2&offer=%CloneOfferID%&languageLocale_2=EN_US&languageLocale_1=EN_AU
+	SendInput, ^v
+	SendInput, {ENTER}
+	IELoad(wb)
+	Goto, JobInventoryCycle
+	Return
+	
+	UpdateInventoryOffer:
+	WinActivate, , Internet Explorer
+	SendInput, {Alt Down}d{Alt Up}
+	SendInput, {TAB 6}
+	SendInput, TBD: Job Inventory [010301 Q2S]
+	Clipboard = %JobClip%
+	SendInput, {TAB 6}
+	SendInput, ^v
+	SendInput, {TAB 2}
+	SendInput, {ENTER}
+	IELoad(wb)
+	Soundbeep
+	Goto, JobInventoryCycle
+	Return
+	
+	SubmitJobInventory:
+	WinActivate, , Internet Explorer
+	SendInput, {Alt Down}d{Alt Up}
+	SendInput, {TAB 16}
+	SendInput, {ENTER}
+	IELoad(wb)
+	Soundbeep
+	Goto, JobInventoryCycle
+	Return
+	Return
+	
+	PromoteJobInventory:
+	WinActivate, , Internet Explorer
+	SendInput, {Alt Down}d{Alt Up}
+	SendInput, {TAB 7}
+	SendInput, {ENTER}
+	IELoad(wb)
+	Soundbeep
+	Goto, JobInventoryCycle
+	Return
+	
+	; Go to load screen of MVS tool
+	MVSLoadScreen:
+	SendInput, {Alt Down}d{Alt Up}
+	ClipSave = %Clipboard% 
+	Clipboard = ;
+	Clipboard = http://internal.e-rewards.com/variablesubstitution/load_variables.view?job=%JobClip%
+	Clipwait
+	SendInput, ^v
+	SendInput, {ENTER}
+	Clipboard = ;
+	Clipboard = %ClipSave%
+	Return
+	
+	; SQL Debug macro. Adjust number to match error report on check query.
+	SQLDebug:
+	SendInput, {Right 183}
+	Return
+	
+	; Generates code based on entered content. Configurable.
+	CodeGenerator:
+	InputBox, QuickCode, Type Number, Type Number, , , , , , , , 
+	Clipboard = &variables=%QuickCode%&type%QuickCode%=2&email%QuickCode%=Y&micro%QuickCode%=Y
+	SendInput, ^v
+	Return
+	
+	; Quickly MINUS amount from current selected number/text
+	QuickSubtraction:
+	SendInput, ^x
+	Clipwait
+	InputBox, MinusAmt, MINUS, Subtract how much?, , , , , , , , 100
+	EnvSub, Clipboard, %MinusAmt%
+	SendInput, ^v
+	Return
+	
+	; Quickly ADD amount from current selected number/text
+	QuickAddition:
+	SendInput, ^x
+	Clipwait
+	InputBox, MinusAmt, ADD, Add how much?, , , , , , , , 100
+	EnvAdd, Clipboard, %AddAmt%
+	SendInput, ^v
+	Return
+	
+	STSPEG:
+	Clipboard = ;
+	WinActivate, Microsoft Excel
+	SendInput, {Down}
+	SendInput, ^c
+	Clipwait
+	JobClip = %Clipboard%
+	StringReplace, JobClip, JobClip, `r, , All
+	StringReplace, JobClip, JobClip, `n, , All
+	StringReplace, JobClip, JobClip, %A_Tab%, , All
+	Clipboard = http://sts.researchnow.com/stswfall/projects/%JobClip%/masterProjectPage.do
+	
+	
+	WinActivate, Master Project Page
+	SendInput, {Alt Down}d{Alt Up}
+	Sleep, 100
+	SendInput, ^v
+	Sleep, 100
+	SendInput, {ENTER}
+	Return
+	
+	MakePluginSet:
+	InputBox, FileSetName, Plugin Name, What do you want to name the plugin?
+	If ErrorLevel
+		Return
+	else
+		InputBox, FileSetFolder, Folder Selection, What Sub Folder do you want to put the file set in?`n`nLeave blank to put in root plugins folder., , , , , , , , Production\
+	if ErrorLevel
+		Return
+	else
+		FileAppend, , I:\CS\ProdMgmt\masmith\.Department - Production\.Project Resources\AHK Macro Development\Development\Multi-Tool Reorganized\Plugins\%FileSetFolder%%FileSetName%.core
+	FileAppend, , I:\CS\ProdMgmt\masmith\.Department - Production\.Project Resources\AHK Macro Development\Development\Multi-Tool Reorganized\Plugins\%FileSetFolder%%FileSetName%.call
+	FileAppend, , I:\CS\ProdMgmt\masmith\.Department - Production\.Project Resources\AHK Macro Development\Development\Multi-Tool Reorganized\Plugins\%FileSetFolder%%FileSetName%.ui
+	FileAppend, , I:\CS\ProdMgmt\masmith\.Department - Production\.Project Resources\AHK Macro Development\Development\Multi-Tool Reorganized\Plugins\%FileSetFolder%%FileSetName%.ini
+	FileAppend, , I:\CS\ProdMgmt\masmith\.Department - Production\.Project Resources\AHK Macro Development\Development\Multi-Tool Reorganized\Plugins\%FileSetFolder%%FileSetName%.init
+	FileAppend, , I:\CS\ProdMgmt\masmith\.Department - Production\.Project Resources\AHK Macro Development\Development\Multi-Tool Reorganized\Plugins\%FileSetFolder%%FileSetName%.tab
+	Return
+	
+	; Quick MMR Job Offer Setup - Very basic
+	; QuickSetupOfferDescription variable
+	QuickMMROffer:
+	;InputBox, MMRHonorariumSetup, Honorarium, What is the honorarium amount for this job?, , , , , , , , 
+	QuickSetupOfferDescription = %Clipboard%
+	StringReplace, QuickSetupOfferDescription, QuickSetupOfferDescription, `r, , All
+	StringReplace, QuickSetupOfferDescription, QuickSetupOfferDescription, `n, , All
+	StringReplace, QuickSetupOfferDescription, QuickSetupOfferDescription, %A_Tab%, , All
+	StringReplace, QuickSetupOfferDescription, QuickSetupOfferDescription, %A_Space%, +, All
+	QuickMMRURL = http://internal.e-rewards.com/surveymgmt/SaveOffer?type=OFFER&id=NEW&database=2&offer=NEW&redirect=`%2Fsurveymgmt`%2Foffer`%2FeditOffer.htm`%3Foffer`%3D&new=true&private_label_id=3&oll_visible_EN_CA=on&translation_id_EN_CA=&translate_language_locale_EN_CA=EN_US&languageLocale_2=EN_US&oll_visible_EN_US=on&desc=%QuickSetupOfferDescription%&partners=10000&offer_type=26&earnnow_enrollment_wave=&recruit_action=4&applyRecruit=Y&auto_credit=N&auto_credit_version=2&auto_credit_domain=&localizationTypeCode=C&offer_text_language_locale_1=EN_US&offer_text_desc_1=Managed+Care+Study&offer_pageflow_template=203075&enroll_startmonth=9&enroll_startday=24&enroll_startyear=2014&enroll_starthour=3_PM&enrollment_start_date=&enroll_endmonth=12&enroll_endday=23&enroll_endyear=2014&enroll_endhour=12_PM&enrollment_end_date=&enrollment_number_welcome_gifts=1&enrollment_available_gift_count=0&promotion_job_1=%JobClip%&promotion_id_1=&promotion_language_locale_1=EN_US&wave_start_date_1=&wave_end_date_1=&wave_start_date_1=&wave_end_date_1=
+	Clipboard = ;
+	Clipboard = %QuickMMRURL%
+	Clipwait
+	SendInput, {Alt Down}d{Alt Up}
+	SendInput, ^v
+	SendInput, {ENTER}
+	SoundBeep
+	Return
+	
+	; VOP Exit Page Creation
+	VOPExitCreator:
+	InputBox, vopexitname, File Name, Put in the name of the exit page. Do not include the .asp extension.
+	FileRead, Clipboard, C:\Users\masmith\Resources\.Department - VOP\ASP Exit Pages\Exit v3.0.asp
+	FileAppend, %Clipboard%, C:\Users\masmith\Resources\.Department - VOP\VOP Exit Folder\%vopexitname%.asp
+	Return
+	
+	MMRWaveEntry:
+	SendInput, 1{TAB}MMR{TAB}3{TAB}MMR{TAB}4{TAB}MMR{TAB}5{TAB}MMR{TAB}6{TAB}MMR{TAB}7{TAB}MMR{TAB}8{TAB}MMR{TAB}9{TAB}MMR{TAB}10{TAB}MMR{TAB}{ENTER}
+	Return
+	
+	
+	QuickCodePartnerIDChange:
+	StringReplace, Clipboard, Clipboard, `r`n, , All
+	StringReplace, Clipboard, Clipboard, %A_Space%, , All
+	Return
+	
+	
+	CommaDelimitedClip:
+	CommaDelimitedCommaIs = ,
+	StringReplace, Clipboard, Clipboard, `r`n, |, All
+	StringReplace, Clipboard, Clipboard, `n, |, All
+	StringReplace, Clipboard, Clipboard, `r, |, All
+	StringReplace, Clipboard, Clipboard, %A_Space%, |, All
+	StringReplace, Clipboard, Clipboard, %A_Tab%, |, All
+	CommaDelimitedClipRecheck:
+	IfInString, Clipboard, ||
+	{
+		StringReplace, Clipboard, Clipboard, ||, |, All
+		Goto, CommaDelimitedClipRecheck
+	}
+	MsgBox, Clipboard Cleaned paste it!	
+	Return
+	
+	ClipFormatTest:
+	StringReplace, Clipboard, Clipboard, `r`n, |, All ; `%0D`%0A
+	RecheckDuplicateDelimeter:
+	IfInString, Clipboard, ||
+	{
+		StringReplace, Clipboard, Clipboard, ||, |, All
+		Goto, RecheckDuplicateDelimeter
+	}
+	StringReplace, Clipboard, Clipboard, | , `r`n, All
+	;Clipboard = %Clipboard%&seedLevel=1&submit=Get+Results
+	;IfInString, Clipboard, |&seedLevel
+	{
+		StringReplace, Clipboard, Clipboard, |&seedLevel, &seedLevel, All
+	}
+	;StringReplace, Clipboard, Clipboard, |, `%0D`%0A, All ; `%0D`%0A
+	MsgBox, Clipboard Cleaned paste it!
+	Return
+	
+	; VOP ICE Tracker Message Notes
+	:*:xicedone::
+	StringReplace, Clipboard, Clipboard, `r, , All
+	StringReplace, Clipboard, Clipboard, `n, , All
+	SendInput, `
+(
+Captured Term for:%A_Space%%Clipboard%
+Additional Notes: DFP Disabled (0)
+
+Test Link:
+%JobClip%
+)
+	Return
+	
+	;VOP ICE IT Comment
+	:*:xiceit::
+	SendInput, `
+(
+Exec ID: %Jobclip%
+Table:%A_Space%
+%Clipboard%
+)
+	Return
+	
+	; VOP Close Batch
+	:*:xclosebatch::
+	SendInput, `
+(
+if MyExecID = "%JobClip%" then
+	response.redirect("../../closed.html")
+end if
+)
+	Return
+	
+	:*:xclosemultibatch::
+	SendInput, `
+(
+if MyExecID = "%JobClip%" or MyExecID = "xxxxxx" or MyExecID = "xxxxxxx" then
+	response.redirect("../../closed.html")
+end if
+)
+	Return
+	
+	
+	

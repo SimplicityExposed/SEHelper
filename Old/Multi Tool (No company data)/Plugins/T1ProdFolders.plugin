@@ -1,0 +1,87 @@
+; TAB 1
+; Prod Folders
+T1Column1Row1:
+Run, I:\CS\Prod\Promotions Files\Production Team Files
+Return
+
+T1Column1Row2:
+Run, I:\CS\Prod\Promotions Files\Variable Substitution\ERI\Standard Live Variables
+Return
+
+T1Column1Row3:
+Run, I:\CS\Prod\Promotions Files\Variable Substitution\ERI
+Return
+
+T1Column1Row4:
+Run, I:\CS\Prod\Promotions Files\Variable Substitution\MMR files
+Return
+
+T1Column1Row5:
+Run, I:\CS\Prod\Promotions Files\Variable Substitution\ERI\Test_ids_variables
+Return
+
+T1Column1Row6:
+Run, \\wallprdfps03.researchnow.com\Ops\CS\Prod\Segs_counts_etc
+Return
+
+
+
+T1Column2Row1:
+Run, I:\CS\Prod\Promotions Files\Production Team Files\Panel Ops HTML emails
+Return
+
+T1Column2Row2:
+Run, I:\CS\OpsTech\Exception
+Return
+
+T1Column2Row3:
+Return
+
+T1Column2Row4:
+Return
+
+T1Column2Row5:
+Return
+
+T1Column2Row6:
+Return
+
+
+
+T1Column3Row1:
+Return
+
+T1Column3Row2:
+Return
+
+T1Column3Row3:
+Return
+
+T1Column3Row4:
+Return
+
+T1Column3Row5:
+Return
+
+T1Column3Row6:
+Return
+
+
+
+T1Column4Row1:
+Return
+
+T1Column4Row2:
+Return
+
+T1Column4Row3:
+Return
+
+T1Column4Row4:
+Return
+
+T1Column4Row5:
+Return
+
+T1Column4Row6:
+Return

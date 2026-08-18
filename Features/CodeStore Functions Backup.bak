@@ -1,0 +1,99 @@
+
+
+; Functions for Code Store
+
+
+GetCSSQL() ; Legacy function
+{
+	files = ;
+	Loop %A_ScriptDir%\User\CodeStore\SQL Queries\*.sql
+	{
+		files = %A_LoopFileName%|%files%
+	}
+	StringReplace, Files, Files, .sql, , All
+	Sort, files, D|
+	Return files
+}
+
+
+CodeStore_GetCode(Language,Extension:="*")
+{
+	AvailableCode =
+	Loop %A_ScriptDir%\User\CodeStore\%Language%\*.%Extension%
+	{
+		AvailableCode = %A_LoopFileName%|%AvailableCode%
+	}
+	StringReplace, AvailableCode, AvailableCode, .%Extension%, , All
+	Sort, files, D|
+	Return AvailableCode
+}
+
+
+; Retreival Function - need to find out why it won't pull multiple files.
+CodeStore_RetrieveCode(SelectedCode,Language,Extension:="*") {
+	Output = ;
+	Loop %A_ScriptDir%\User\CodeStore\%Language%\*.%Extension%
+	{
+		CurrentScan = %A_LoopFileName%
+		StringReplace, CurrentScan, CurrentScan, .%Extension%, , All
+		IfInString, SelectedCode, %CurrentScan%
+			FileRead, CurrentRead, %A_ScriptDir%\User\CodeStore\%Language%\%A_LoopFileName%
+		If CurrentRead
+			Output := "--------------------------------------------------------------------------------`r`n--------------------------------------------------------------------------------`r`n-- QUERY: " . CurrentScan . "`r`n--------------------------------------------------------------------------------`r`n--------------------------------------------------------------------------------`r`n" . CurrentRead . "`r`n`r`n`r`n" . Output
+		CurrentRead = ; 
+		CurrentScan = ;
+	}
+	Return Output
+}
+
+CodeStore_DeleteFile(SelectedCode,Language,Extension:="*") {
+	Output = ;
+	Loop %A_ScriptDir%\User\CodeStore\%Language%\*.%Extension%
+	{
+		CurrentScan = %A_LoopFileName%
+		StringReplace, CurrentScan, CurrentScan, .%Extension%, , All
+		IfInString, SelectedCode, %CurrentScan%
+			FileDelete, %A_ScriptDir%\User\CodeStore\%Language%\%A_LoopFileName%
+		CurrentRead = ; 
+		CurrentScan = ;
+	}
+	Return Output
+}
+
+CodeStore_OpenFile(SelectedCode,Language,Extension:="*") {
+	Output = ;
+	Loop %A_ScriptDir%\User\CodeStore\%Language%\*.%Extension%
+	{
+		CurrentScan = %A_LoopFileName%
+		StringReplace, CurrentScan, CurrentScan, .%Extension%, , All
+		IfInString, SelectedCode, %CurrentScan%
+			Run, %A_ScriptDir%\User\CodeStore\%Language%\%A_LoopFileName%
+		CurrentRead = ; 
+		CurrentScan = ;
+	}
+	Return Output
+}
+
+
+; Primary storage function to store any language code apropriately for CodeStore
+CodeStore_StoreCode(FileName,CodeContent,Hotstring,HotstringEnabled,Language,Extension) {
+	FileAppend, %CodeContent%, %A_ScriptDir%\User\CodeStore\%Language%\%FileName%.%Extension%
+	IfEqual HotstringEnabled, 1
+		{
+			AutoShortkeyMaker = `
+(
+
+
+:*:%Hotstring%::
+PasteSQL("%FileName%")
+Return
+)
+			FileAppend, %AutoShortkeyMaker%, %A_ScriptDir%\User\CodeStore\CodeStore_Shortkeys.ahk
+		}
+	Run, C:\Program Files (x86)\Notepad++\Notepad++.exe -lsql "%A_ScriptDir%\User\CodeStore\%Language%\%FileName%.%Extension%"
+	IfEqual HotstringEnabled, 1
+		{
+			Reload
+		}
+Return
+}

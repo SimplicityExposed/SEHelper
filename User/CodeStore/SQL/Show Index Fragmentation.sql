@@ -1,0 +1,1 @@
+SELECT * FROM sys.dm_db_index_physical_stats (DB_ID(N'AdventureWorks2008'), NULL, NULL, NULL , 'DETAILED')

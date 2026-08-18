@@ -1,0 +1,134 @@
+;--------------------------------------------------------------------
+;Quick Notes
+;--------------------------------------------------------------------
+:*:xcopy::
+SendInput `
+(
+Email copy updated.
+)
+Return
+
+:*:xjob::
+StringReplace, clipboard, clipboard, `n, , All
+StringReplace, clipboard, clipboard, `r, , All
+StringReplace, clipboard, clipboard, Offer ID:%A_Space%, , All
+StringReplace, clipboard, clipboard, Offer Description:%A_Space%", %A_Space%", All
+StringReplace, clipboard, clipboard, Offer%A_Space%, `rOffer%A_Space%, All
+StringReplace, clipboard, clipboard, All records, `rAll records, All
+SendInput `
+(
+Job offer updated, Offer ID: ^v
+)
+Return
+
+:*:xmvs::
+SendInput, Variable Setup for: %ShortkeyMVS%{ENTER}Variables loaded:{SPACE}
+Return
+
+:*:xw1::
+SendInput, W1 Dropped & Approved
+Return
+
+ 
+:*:xscreen::
+StringReplace, clipboard, clipboard, `n, , All
+StringReplace, clipboard, clipboard, `r, , All
+StringReplace, clipboard, clipboard, CenControl ID:%A_Space%, , All
+StringReplace, clipboard, clipboard, CenControl Description:%A_Space%", %A_Space%", All
+StringReplace, clipboard, clipboard, CenControl, `rCenControl, All
+StringReplace, clipboard, clipboard, All records, `rAll records, All
+SendInput `
+(
+SCREENER PROGRAMMED: ^v
+QM set for:{SPACE}%AutoQuota%
+)
+Return
+
+
+
+:*:xqm::
+StringReplace, clipboard, clipboard, `n, , All
+StringReplace, clipboard, clipboard, `r, , All
+StringReplace, clipboard, clipboard, CenControl ID:%A_Space%, , All
+StringReplace, clipboard, clipboard, CenControl Description:%A_Space%", %A_Space%", All
+StringReplace, clipboard, clipboard, CenControl, `rCenControl, All
+StringReplace, clipboard, clipboard, All records, `rAll records, All
+SendInput `
+(
+QM SET UP: ^v
+QM set to:{SPACE}%AutoQuota%
+)
+Return
+
+
+:*:x+qm::
+StringReplace, clipboard, clipboard, `n, , All
+StringReplace, clipboard, clipboard, `r, , All
+StringReplace, clipboard, clipboard, CenControl ID:%A_Space%, , All
+StringReplace, clipboard, clipboard, CenControl Description:%A_Space%", %A_Space%", All
+StringReplace, clipboard, clipboard, CenControl, `rCenControl, All
+StringReplace, clipboard, clipboard, All records, `rAll records, All
+SendInput `
+(
+QM INCREASED: ^v
+QM set to:{SPACE}%AutoQuota%
+)
+Return
+
+
+:*:x-qm::
+StringReplace, clipboard, clipboard, `n, , All
+StringReplace, clipboard, clipboard, `r, , All
+StringReplace, clipboard, clipboard, CenControl ID:%A_Space%, , All
+StringReplace, clipboard, clipboard, CenControl Description:%A_Space%", %A_Space%", All
+StringReplace, clipboard, clipboard, CenControl, `rCenControl, All
+StringReplace, clipboard, clipboard, All records, `rAll records, All
+SendInput `
+(
+QM REDUCED: ^v
+QM set to:{SPACE}%AutoQuota%
+)
+Return
+
+
+:*:xunexpire::
+SendInput `
+(
+Unexpired Waves:{SPACE}
+W2 Status in DE Tool:{SPACE}
+)
+Return
+
+:*:xmmr::
+SendInput `
+(
+Email Waves 1, 3-10 defined.
+)
+Return
+
+:*:xexpire::
+SendInput `
+(
+Expired Waves:{SPACE}
+W2 Status in DE Tool:{SPACE}
+)
+Return
+
+:*:xovernight::
+SendInput `
+(
+ProductionOvernightUS@researchnow.com
+)
+Return
+
+:*:xnovars::
+SendInput `
+(
+This job currently has insufficient variables loaded to drop the requested waves. Please load more variables to this job and then return the task to our queue once done to have the waves dropped.
+)
+Return
+
+:*:xoverall::
+InputBox, AutoQuota, Quota Stop, What is the desired Quota?, , , , , , , , 999998
+SendInput, Overall{TAB 6}%AutoQuota%{TAB}999999{Shift Down}{TAB}{Shift Up}{Ctrl Down}a{Ctrl Up}
+Return

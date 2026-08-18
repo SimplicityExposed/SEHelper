@@ -1,0 +1,22 @@
+;--------------------------------------------------------------------
+;MMR Email Copy - Customize and copy to clipboard
+;--------------------------------------------------------------------
+
+GuiClose:
+ButtonCancelHTMLCreation:
+Gui, Cancel
+Gui, Destroy
+Return
+
+ButtonGenerateSendHTMLtoClipboard:
+Gui, Submit
+PrimaryUIState = 0
+FileRead, Clipboard, %MMRTemplateLocation%
+StringReplace, clipboard, clipboard, Dear <`%FIRST`%> <`%LAST`%>, %SalutationVar%, All
+StringReplace, clipboard, clipboard, +++ Study, %StudyName%, All
+StringReplace, clipboard, clipboard, $+++, $%RewardAmount%, All
+StringReplace, clipboard, clipboard, +++ Minutes, %LOI% Minutes, All
+StringReplace, clipboard, clipboard, +++ J+++ P+++, %JobID%, All
+MsgBox, The new MMR Email copy is now in your clipboard ready to paste into CMS!
+Gui, Destroy
+Return

@@ -1,0 +1,208 @@
+;--------------------------------------------------------------------
+;Variable Setup - Complete Options for All
+;--------------------------------------------------------------------
+VarSetup:
+Gui, 1:Submit
+PrimaryUIState = 0
+ClipHoldForMVS := ClipboardAll
+VariableSetupAdd = %VariableSetupChosen%
+VariableSetupSubmitPromote = %VariableSetupChosen%
+VariableSetupBlankChar = ; Blank character test.
+MVSComma = ,
+; ---- Create auto-input of activated variable names for xMVS shortkey
+	ShortkeyMVS = %VariableSetupChosen%
+	StringReplace, ShortkeyMVS, ShortkeyMVS, Session Variables, , All
+	StringReplace, ShortkeyMVS, ShortkeyMVS, Session, , All
+	StringReplace, ShortkeyMVS, ShortkeyMVS, Personal (PII), , All
+	StringReplace, ShortkeyMVS, ShortkeyMVS, Member Fact Variables, , All
+	StringReplace, ShortkeyMVS, ShortkeyMVS, Custom Lookup, , All
+	StringReplace, ShortkeyMVS, ShortkeyMVS, >, , All
+	StringReplace, ShortkeyMVS, ShortkeyMVS, |, %MVSComma%, All
+	StringReplace, ShortkeyMVS, ShortkeyMVS, ___________________, , All
+	ShortkeyMVS = %ShortkeyMVS%*
+	StringReplace, ShortkeyMVS, ShortkeyMVS, %MVSComma%*, , All
+	StringReplace, ShortkeyMVS, ShortkeyMVS, *, , All
+	StringReplace, ShortkeyMVS, ShortkeyMVS, %MVSComma%, %MVSComma%%A_Space%, All
+; ---- Find and Replace variable names with code for ADD TO MODEL OFFICE
+	StringReplace, VariableSetupAdd, VariableSetupAdd, ZIP_PLUS_6, &addvariables=63, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, VAR5, &addvariables=25, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, VAR4, &addvariables=24, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, VAR3, &addvariables=23, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, VAR2, &addvariables=22, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, VAR1, &addvariables=21, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, USPS_ZIP, &addvariables=79, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, USPS_STATE, &addvariables=78, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, USPS_COUNTRY_CD, &addvariables=87, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, USPS_CITY, &addvariables=77, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, URL, &addvariables=3, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, UID, &addvariables=8, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, SURVEY_TOPIC, &addvariables=90, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, SUBSEG, &addvariables=5, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, SUBJECT2, &addvariables=93, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, SUBJECT, &addvariables=70, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, STATE_COUNTY_FIPS, &addvariables=58, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, STATE, &addvariables=57, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, SOURCE_SPONSOR, &addvariables=36, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, SOURCE, &addvariables=6, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, Session Variables, , All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, Session, , All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, SEG, &addvariables=4, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, SALUTATION, &addvariables=80, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, REGION_CD, &addvariables=56, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, RACE_ID, &addvariables=55, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, PROFESSIONAL_SUFFIX, &addvariables=88, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, PRIVATE_LABEL, &addvariables=30, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, POSTAL_CD, &addvariables=54, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, PMSA, &addvariables=53, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, PIN, &addvariables=1, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, PHONE, &addvariables=74, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, Personal (PII), , All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, PASS, &addvariables=2, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, NUM_MINUTES, &addvariables=92, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, MMS_JOB, &addvariables=96, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, Member Fact Variables, , All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, MARITAL_STATUS_ID, &addvariables=51, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, LOCALE, &addvariables=45, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, LETTER_CD, &addvariables=97, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, LANGUAGE, &addvariables=44, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, JOB_TOUCH, &addvariables=100, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, INVITATION_CODE, &addvariables=73, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, INDUSTRY_ID, &addvariables=61, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, HONORARIA, &addvariables=71, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, HISPANIC_ORIGIN_ID, &addvariables=49, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, GENDER, &addvariables=37, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, FUNCTIONAL_ROLE_ID, &addvariables=60, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, FINDID, &addvariables=7, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, EXPIRATION_DATE, &addvariables=91, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, EDUCATION_ID, &addvariables=48, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, DURATION, &addvariables=72, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, DMA, &addvariables=47, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, DIVISION_CD, &addvariables=46, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, Custom Lookup, , All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, COUNTY_FIPS, &addvariables=43, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, COUNTRY_CD, &addvariables=42, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, COMPANY, &addvariables=81, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, CITY, &addvariables=40, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, CBSA, &addvariables=41, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, BROADCAST_DATE, &addvariables=89, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, ANNUAL_REVENUE_ID, &addvariables=59, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, AGE_BAND, &addvariables=35, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, AGE, &addvariables=34, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, ADDRESS2, &addvariables=76, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, ADDRESS1, &addvariables=75, All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, >, , All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, |, , All
+	StringReplace, VariableSetupAdd, VariableSetupAdd, ___________________, , All
+; ---- Find and Replace variable names with code for SUBMIT/PROMOTE VARIABLE SETUP
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, ZIP_PLUS_6, &variables=63&type63=2&email63=Y&micro63=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, VAR5, &variables=25&type25=2&email25=Y&micro25=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, VAR4, &variables=24&type24=2&email24=Y&micro24=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, VAR3, &variables=23&type23=2&email23=Y&micro23=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, VAR2, &variables=22&type22=2&email22=Y&micro22=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, VAR1, &variables=21&type21=2&email21=Y&micro21=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, USPS_ZIP, &variables=79&type79=2&email79=Y&micro79=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, USPS_STATE, &variables=78&type78=2&email78=Y&micro78=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, USPS_COUNTRY_CD, &variables=87&type87=2&email87=Y&micro87=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, USPS_CITY, &variables=77&type77=2&email77=Y&micro77=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, URL, &variables=3&type3=2&email3=Y&micro3=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, UID, &variables=8&type8=2&email8=Y&micro8=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, SURVEY_TOPIC, &variables=90&type90=2&email90=Y&micro90=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, SUBSEG, &variables=5&type5=2&email5=Y&micro5=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, SUBJECT2, &variables=93&type93=2&email93=Y&micro93=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, SUBJECT, &variables=70&type70=2&email70=Y&micro70=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, STATE_COUNTY_FIPS, &variables=58&type58=2&email58=Y&micro58=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, STATE, &variables=57&type57=2&email57=Y&micro57=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, SOURCE_SPONSOR, &variables=36&type36=2&email36=Y&micro36=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, SOURCE, &variables=6&type6=2&email6=Y&micro6=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, Session Variables, , All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, Session, , All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, SEG, &variables=4&type4=2&email4=Y&micro4=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, SALUTATION, &variables=80&type80=2&email80=Y&micro80=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, REGION_CD, &variables=56&type56=2&email56=Y&micro56=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, RACE_ID, &variables=55&type55=2&email55=Y&micro55=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, PROFESSIONAL_SUFFIX, &variables=88&type88=2&email88=Y&micro88=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, PRIVATE_LABEL, &variables=30&type30=2&email30=Y&micro30=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, POSTAL_CD, &variables=54&type54=2&email54=Y&micro54=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, PMSA, &variables=53&type53=2&email53=Y&micro53=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, PIN, &variables=1&type1=2&email1=Y&micro1=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, PHONE, &variables=74&type74=2&email74=Y&micro74=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, Personal (PII), , All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, PASS, &variables=2&type2=2&email2=Y&micro2=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, NUM_MINUTES, &variables=92&type92=2&email92=Y&micro92=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, MMS_JOB, &variables=96&type96=2&email96=Y&micro96=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, Member Fact Variables, , All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, MARITAL_STATUS_ID, &variables=51&type51=2&email51=Y&micro51=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, LOCALE, &variables=45&type45=2&email45=Y&micro45=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, LETTER_CD, &variables=97&type97=2&email97=Y&micro97=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, LANGUAGE, &variables=44&type44=2&email44=Y&micro44=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, JOB_TOUCH, &variables=100&type100=2&email100=Y&micro100=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, INVITATION_CODE, &variables=73&type73=2&email73=Y&micro73=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, INDUSTRY_ID, &variables=61&type61=2&email61=Y&micro61=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, HONORARIA, &variables=71&type71=2&email71=Y&micro71=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, HISPANIC_ORIGIN_ID, &variables=49&type49=2&email49=Y&micro49=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, GENDER, &variables=37&type37=2&email37=Y&micro37=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, FUNCTIONAL_ROLE_ID, &variables=60&type60=2&email60=Y&micro60=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, FINDID, &variables=7&type7=2&email7=Y&micro7=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, EXPIRATION_DATE, &variables=91&type91=2&email91=Y&micro91=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, EDUCATION_ID, &variables=48&type48=2&email48=Y&micro48=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, DURATION, &variables=72&type72=2&email72=Y&micro72=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, DMA, &variables=47&type47=2&email47=Y&micro47=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, DIVISION_CD, &variables=46&type46=2&email46=Y&micro46=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, Custom Lookup, , All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, COUNTY_FIPS, &variables=43&type43=2&email43=Y&micro43=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, COUNTRY_CD, &variables=42&type42=2&email42=Y&micro42=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, COMPANY, &variables=81&type81=2&email81=Y&micro81=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, CITY, &variables=40&type40=2&email40=Y&micro40=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, CBSA, &variables=41&type41=2&email41=Y&micro41=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, BROADCAST_DATE, &variables=89&type89=2&email89=Y&micro89=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, ANNUAL_REVENUE_ID, &variables=59&type59=2&email59=Y&micro59=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, AGE_BAND, &variables=35&type35=2&email35=Y&micro35=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, AGE, &variables=34&type34=2&email34=Y&micro34=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, ADDRESS2, &variables=76&type76=2&email76=Y&micro76=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, ADDRESS1, &variables=75&type75=2&email75=Y&micro75=Y, All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, >, , All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, |, , All
+	StringReplace, VariableSetupSubmitPromote, VariableSetupSubmitPromote, ___________________, , All
+; ---- Action Set to Complete Variable Setup
+Clipboard = http://internal.e-rewards.com/variablesubstitution/database_p.jsp?database=MODEL_OFFICE&redirect=assignvars.jsp?job=%MVSJobSetup% ; Enter model office for specified job.
+SendInput, {Alt Down}d{Alt Up}{Ctrl Down}v{Ctrl Up}{enter}
+Sleep, 1000
+Clipboard = http://internal.e-rewards.com/variablesubstitution/assignvars.jsp?job=%MVSJobSetup%&env=MODEL_OFFICE%VariableSetupAdd%&type=2&add=Add+Variable ; Add the PIN variable to Model Office
+SendInput, {Alt Down}d{Alt Up}{Ctrl Down}v{Ctrl Up}{enter}
+Sleep, 1000
+Clipboard = http://internal.e-rewards.com/variablesubstitution/assignvars.jsp?job=%MVSJobSetup%&env=MODEL_OFFICE%VariableSetupSubmitPromote%&submit=Submit+Changes ; Check the PIN variables "Email" and "Web" passthrough check boxes.
+SendInput, {Alt Down}d{Alt Up}{Ctrl Down}v{Ctrl Up}{enter}
+Sleep, 1000
+Clipboard = http://internal.e-rewards.com/variablesubstitution/assignvars.jsp?job=%MVSJobSetup%&env=MODEL_OFFICE%VariableSetupSubmitPromote%&promote=Promote+Variables ; Promote the PIN variable to the production environment.
+SendInput, {Alt Down}d{Alt Up}{Ctrl Down}v{Ctrl Up}{enter}
+Sleep, 1000
+Clipboard = http://internal.e-rewards.com/variablesubstitution/database_p.jsp?database=PRODUCTION&redirect=assignvars.jsp?job=%MVSJobSetup% ; Change MVS tool to Production Environment (in order to prepare to send user to variable load screen.
+SendInput, {Alt Down}d{Alt Up}{Ctrl Down}v{Ctrl Up}{enter}
+Sleep, 1000
+Clipboard = http://internal.e-rewards.com/variablesubstitution/load_variables.view?job=%MVSJobSetup% ; Send user to Load Variales screen.
+SendInput, {Alt Down}d{Alt Up}{Ctrl Down}v{Ctrl Up}{enter}
+Sleep, 1000
+; ---- Cleanup Clipboard & Variables Post Setup
+Clipboard = %ClipHoldForMVS%
+ClipHoldForMVS = ; Empty temporary clipboard storage to preserve system memory.
+VariableSetupAdd = ; Empty variable storage to preserve system memory.
+VariableSetupSubmitPromote = ; Empty variable storage to preserve system memory.
+Return
+
+VarSetupInstructions:
+MVSInstructions = `
+(
+When using this macro you must make sure that the last active window  prior to activating the tool was your MVS tool. You must make sure you are logged in prior to using this macro.
+
+If you are ever doubt as to what your "last active window is" simply click inside your MVS tool, then back to this box right before clicking "Set Up Selected Variables"
+
+If you are not logged into the MVS tool the macro will simply send links to the tool causing you to receive errors that you are not logged in.
+
+Also please make sure you do not attempt to load variables to a job that already has a setup.
+
+Please make it a habit to always check for an existing variable setup prior to running this tool. The only time you shouldn't have to make this consideration is when you are setting up a brand new job pack.
+
+The job number field will automatically populate with whatever you have placed into your Job Clip. Please be aware of what number is automatically entered and make sure you update the field if it is not the proper job number.
+)
+MsgBox, 4096, MVS Setup Instructions, Instructions:`n______________`n%MVSInstructions%
+Return

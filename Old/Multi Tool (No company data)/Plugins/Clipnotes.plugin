@@ -1,0 +1,112 @@
+; Clipnote 1 Save & Get Coding
+CN1S:
+Gui, 1:Submit
+Gui, 1:Destroy
+PrimaryUIState = 0
+CN1JC = %JobClip%
+CN1Clip = %Clipboard%
+Return
+
+CN1G:
+Gui, 1:Submit
+Gui, 1:Destroy
+PrimaryUIState = 0
+JobClip = %CN1JC%
+Clipboard = %CN1Clip%
+Return
+
+; Clipnote 2 Save & Get Coding
+CN2S:
+Gui, 1:Submit
+Gui, 1:Destroy
+PrimaryUIState = 0
+CN2JC = %JobClip%
+CN2Clip = %Clipboard%
+Return
+
+CN2G:
+Gui, 1:Submit
+Gui, 1:Destroy
+PrimaryUIState = 0
+JobClip = %CN2JC%
+Clipboard = %CN2Clip%
+Return
+
+; Clipnote 3 Save & Get Coding
+CN3S:
+Gui, 1:Submit
+Gui, 1:Destroy
+PrimaryUIState = 0
+CN3JC = %JobClip%
+CN3Clip = %Clipboard%
+Return
+
+CN3G:
+Gui, 1:Submit
+Gui, 1:Destroy
+PrimaryUIState = 0
+JobClip = %CN3JC%
+Clipboard = %CN3Clip%
+Return
+
+; Clipnote 4 Save & Get Coding
+CN4S:
+Gui, 1:Submit
+Gui, 1:Destroy
+PrimaryUIState = 0
+CN4JC = %JobClip%
+CN4Clip = %Clipboard%
+Return
+
+CN4G:
+Gui, 1:Submit
+Gui, 1:Destroy
+PrimaryUIState = 0
+JobClip = %CN4JC%
+Clipboard = %CN4Clip%
+Return
+
+CNHelp:
+IfEqual, EnableDevContent, 0
+	{
+	WinGetPos, PositionX, PositionY, , , Production Multi-Tool [V%MVersion% by Michael A. Smith]
+	}
+IfEqual, EnableDevContent, 1
+	{
+		WinGetPos, PositionX, PositionY, , , Production Multi-Tool [V%MVersion% by Michael A. Smith] [Developer Mode]
+	}
+WindowPosition = x%PositionX% y%PositionY%
+Return
+
+^RButton Up::Menu, ClipnoteMenu, Show ; Menu is defined in startup actions plugin.
+
+ClearAllClipnotes:
+CN1JC = ;
+CN1Clip = ;
+CN2JC = ;
+CN2Clip = ;
+CN3JC = ;
+CN3Clip = ;
+CN4JC = ;
+CN4Clip = ;
+Return
+
+ClearCN1:
+CN1JC = ;
+CN1Clip = ;
+Return
+
+ClearCN2:
+CN2JC = ;
+CN2Clip = ;
+Return
+
+ClearCN3:
+CN3JC = ;
+CN3Clip = ;
+Return
+
+ClearCN4:
+CN4JC = ;
+CN4Clip = ;
+Return

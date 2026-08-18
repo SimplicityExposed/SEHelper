@@ -1,0 +1,66 @@
+Changelog for Production Macro Suite
+Program Author: Michael A. Smith (masmith@researchnow.com)
+Release Date: August 1st, 2014
+
+
+________________________________________________
+1.1 - August 8st, 2014
+* Large Update \ Bug Fixes
+
+* Executable Updated (32 Bit): ProductionMacroSuite.exe
+-- Removed password storage and auto entry for screener import macro (For corporate security adherance)
+-- Added new screener import macro that pulls the job number from the Job Clipboard
+-- Added secondary clipboard, Ctrl+Shift+S places current clipboard contents to it. Intended to store job numbers.
+-- -- Secondary clipboard types its contents with Ctrl+Shift+V (To enable paste in dropdown menus)
+-- -- Secondary clipboard types its contents with Alt+V with an asterisk preface for dropdown menu selection in CMS with wave 1 drops)
+-- Updated Wave 1 test member pastes to use a tooltip notification for language and locale.
+-- Updated wave 1 test member pastes to pull member ID's directly from the source files on launch. This removes the need to update this information in the macros.
+-- Updated MVS PIN macro (Shift+F3). This macro now works properly.
+-- Added Shortkeys for quick notes: XCOPY, XJOB, XMVS, XW1, XSCREEN, XQM, X-QM, X+QM, XEXPIRE, XUNEXPIRE, XOVERNIGHT, XNOVARS
+
+* Executable Updated (32 Bit): Install Production Macro Suite Auto-Launcher.exe
+-- Now enables the macro suite launcher to be updated by introducing the ability to overwrite the installed files.
+
+* Executable Updated (32 Bit): PMSLauncher.exe
+-- Introduced code that checks if network drives are available on launch (for working on site) and eliminates the popup with VPN instructions if it is available.
+-- Known Issue: Sometimes the launcher fails to close the Explorer window it launches the bypass the network drive issues when on VPN.
+
+________________________________________________
+1.0 - August 1st, 2014
+* Initial release.
+
+* Executable Added (32 Bit): ProductionMacroSuite.exe 
+-- Functions as the core that contains all program features
+-- Uses AutoHotkey scripting language
+-- Executable is compiled in a portable format allowing a central copy to be ran off of a network drive.
+-- Running this program from the network drive enables a centralized copy to be updated with no need for the end users terminal to perform an update.
+
+* Added hotkeys:
+-- Shift+F1} A basic popup with a listing of shortkeys and hotkeys and their basic purpose.
+-- Shift+F2} A basic multiple input box form to automatically generate the HTML code for an MMR email copy. Pulls source code from template.
+-- Shift+F3} An automated URL replacement that when activated in MVS tool quickly enables PIN in production for a specified job.
+-- Shift+F4} Automaticly fills the screener macro import dialogue with the server details and the users credentials.
+-- Ctrl+Shift+F12} Allows you to enter your ERI domain password for use with the screener import function.
+
+* Added shortkeys:
+-- xenustest} Automatically types the full 20 test member ID's for use with segmentation utilties for: English \ United States
+-- xencatest} Automatically types the full 20 test member ID's for use with segmentation utilties for: English \ Canada
+-- xenautest} Automatically types the full 20 test member ID's for use with segmentation utilties for: English \ Australia
+-- xenaetest} Automatically types the full 20 test member ID's for use with segmentation utilties for: English \ United Arab Emirates
+-- xengbtest} Automatically types the full 20 test member ID's for use with segmentation utilties for: English \ Great Britain
+-- xnectartest} Automatically types the full 20 test member ID's for use with segmentation utilties for: English \ Great Britain (NECTAR)
+-- xfrcatest} Automatically types the full 20 test member ID's for use with segmentation utilties for: French \ Canada
+-- xfrfrtest} Automatically types the full 20 test member ID's for use with segmentation utilties for: French \ France
+-- xesmxtest} Automatically types the full 20 test member ID's for use with segmentation utilties for: Spanish \ Mexico
+-- xptbrtest} Automatically types the full 20 test member ID's for use with segmentation utilties for: Portuguese \ Brazil
+-- xdedetest} Automatically types the full 20 test member ID's for use with segmentation utilties for: German \ Germany
+
+* Executable Added (32 Bit): PMSLauncher.exe
+-- When executed it provides a popup confirming launch and instructions for remote employees on how to account for the wait when connecting to the VNP.
+-- Bypasses Windows 7 limitation (Network drives are unavailable to applications until navigated to through an Explorer interface.) by launching an Explorer window in "I:\" then closing it.
+
+
+* Executable Added (32 Bit): Install Production Macro Suite Auto-Launcher.exe
+-- Copies the launcher executable to C:\Users\%USERNAME%\Production Macro Suite\
+-- Copies a shortcut to the launcher installed on the user machine to the Start Menu's "Startup" folder to enable the macro suite to be auto-launched.
+

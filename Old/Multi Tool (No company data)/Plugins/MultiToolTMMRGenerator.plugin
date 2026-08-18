@@ -1,0 +1,19 @@
+; ---------- MMR HTML Email Copy Generator
+Gui, Tab, MMR HTML Gen
+	Gui, Add, Text, x32 y53 w120 h20 +Right, Salutation:
+	Gui, Add, DropDownList, x152 y50 w530 h155 vSalutationVar, Dear <`%FIRST`%> <`%LAST`%`>||Dear <`%FIRST`%>|Dear Dr. <`%FIRST`%> <`%LAST`%`>|Dear Dr. <`%LAST`%> ; Dropdown for the salutations.
+	Gui, Add, Text, x32 y83 w120 h20 +Right, Study Name:
+	Gui, Add, Edit, x152 y80 w530 h20 vStudyName, ; Text entry field for the study name.
+	Gui, Add, Text, x152 y100 , Study Name Example: "Cardiology Study"
+	Gui, Add, Text, x32 y133 w120 h20 +Right, Survey Length (LOI):
+	Gui, Add, Edit, x152 y130 w80 h20 +Right vLOI, ; Text entry field for the LOI
+	Gui, Add, Text, x232 y133 w50 h20 , %A_Space%Minutes
+	Gui, Add, Text, x52 y163 w100 h20 +Right, Reward Amount: $
+	Gui, Add, Edit, x152 y160 w80 h20 +Right vRewardAmount, ; Text entry for the reward amount
+	Gui, Add, Text, x282 y133 w70 h20 +Right, Job Details:
+	Gui, Add, Edit, x352 y130 w330 h20 vJobID, ; Text entry for job details
+	Gui, Add, Text, x352 y150 w230 h20 , Job Detail Example: "MS J123456 P654321"
+	Gui, Add, Text, x232 y163 w50 h20 , .00
+	Gui, Add, Button, x352 y190 w220 h20 , Generate && Send HTML to Clipboard
+	Gui, Add, Text, x10 y230, This tool pulls and updates from the standard Production HTML template.
+Gui, Tab

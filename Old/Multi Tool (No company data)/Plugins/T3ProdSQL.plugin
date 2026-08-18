@@ -1,0 +1,9 @@
+; TAB 3
+; Prod SQL
+SQLOnDemand:
+Gui, 1:Submit, NoHide
+FileRead, Clipboard, %A_ScriptDir%\Resources\Prod SQL\%SQLOnDemandRequested%.txt
+StringReplace, clipboard, clipboard, +SQLJOB+, %SQLJOB%, All
+StringReplace, clipboard, clipboard, +DATE+, %A_MM%/%A_DD%/%A_YYYY%, All
+MsgBox, 4096, Notification, SQL Code sent to clipboard:`n%SQLOnDemandRequested%
+Return

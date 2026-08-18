@@ -1,0 +1,46 @@
+;--------------------------------------------------------------------
+;Job Clip
+;--------------------------------------------------------------------
+;Special Clipboard
+^+s::
+JobClipActions:
+ShortkeyMVS = ; Clear Previous MVS activation listing to prevent incorrect notes with new job number.
+AutoQuota = ; Clear previous QM number to prevent accidental incorrect notes.
+JobClip = %Clipboard%
+StringReplace, JobClip, JobClip, `r, , All
+StringReplace, JobClip, JobClip, `n, , All
+StringReplace, JobClip, JobClip, %A_Tab%, , All
+JobClip = %JobClip%
+MsgBox, Your Job Clipboard now contains:`n`n%JobClip%
+return
+
+JobClipFunction(DataToClean) {
+	global
+	StringReplace, DataToClean, DataToClean, `r, , All
+	StringReplace, DataToClean, DataToClean, `n, , All
+	StringReplace, DataToClean, DataToClean, %A_Tab%, , All
+	Return DataToClean
+}
+
+
+
+;^RButton Up::
+IfEqual, EnableDevContent, 1
+	{
+		ShortkeyMVS = ; Clear Previous MVS activation listing to prevent incorrect notes with new job number.
+		JobClip = %Clipboard%
+		StringReplace, JobClip, JobClip, `r, , All
+		StringReplace, JobClip, JobClip, `n, , All
+		StringReplace, JobClip, JobClip, %A_Tab%, , All
+		MsgBox, Your Job Clipboard now contains:`n`n%JobClip%
+		return
+	}
+Return
+
+^+v::
+SendInput, %JobClip%
+Return
+
+!v::
+SendInput, *%JobClip%
+Return

@@ -1,0 +1,14 @@
+CREATE TABLE #ClusterLog (
+	CONTENT NVARCHAR(4000)
+	);
+
+bulk insert #ClusterLog
+from 'C:\Support Engineer\Cases\116122615108237\2016-12-28\Results_USVMSQBEMSP01_2016-12-27_18.59.36\USVMSQBEMSP01_MSSQLSERVER_1033_ERRORLOG.7'
+with (rowterminator = '\n')
+go
+
+SELECT * FROM #ClusterLog
+WHERE CONTENT LIKE '%I/O requests taking longer than 15 seconds%'
+WHERE (CONTENT LIKE '% ERR %' OR CONTENT LIKE '% WARN %')
+AND (CONTENT LIKE '%2016/11/28%' OR CONTENT LIKE '%2016/11/29%')
+AND CONTENT NOT LIKE '%MSMQ%'

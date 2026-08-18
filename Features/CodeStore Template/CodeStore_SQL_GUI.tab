@@ -1,0 +1,22 @@
+{
+Gui, Tab, CodeStore SQL
+	CodeStore_Location_SQL = %A_ScriptDir%\User\CodeStore\SQL
+	AvailableSQL := CodeStore_GetCode(CodeStore_Location_SQL,"sql")
+	Gui, Add, GroupBox, x12 y6 w443 h367 , Save SQL to CodeStore
+	Gui, Add, Text, x14 y32 w60 h20 +Right, File Name:
+	Gui, Add, Edit, x76 y29 w369 h20 -Wrap vCodeStore_FileName_SQL, ; Code file name entry field
+	Gui, Add, Edit, x22 y57 w423 h273 -Wrap +HScroll vCodeStore_CodeContent_SQL, ; Code entry field
+	Gui, Add, Edit, x22 y341 w170 h20 -Wrap vCodeStore_Hotstring_SQL, ; Hotstring text entry field
+	Gui, Add, CheckBox, x198 y342 w60 h20 vCodeStore_HotstringEnabled_SQL, Hotstring ; Checkbox to enable creation of a Hotstring for new text.
+	Gui, Add, Button, x297 y336 w150 h30 gCodeStore_StoreCode_SQL, Save to CodeStore
+	
+	
+	Gui, Add, GroupBox, x465 y6 w320 h367 , Retrieve SQL from CodeStore
+	Gui, Add, ListBox, x475 y27 w300 h276 +Multi vCodeStore_SelectedCode_SQL, %AvailableSQL%
+	Gui, Add, Button, x474 y301 w150 h30 gCodeStore_FileToClipboard_SQL Disabled, Send File(s) to Clipboard
+	Gui, Add, Button, x626 y301 w150 h30 gCodeStore_CodeToClipboard_SQL, Send Code(s) to Clipboard
+	Gui, Add, Button, x474 y336 w150 h30 gCodeStore_OpenFile_SQL, Open File(s)
+	Gui, Add, Button, x626 y336 w150 h30 gCodeStore_DeleteFile_SQL, Delete File(s)
+	GuiControl, Focus, CodeStoreFileName
+Gui, Tab
+}

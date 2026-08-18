@@ -1,0 +1,5 @@
+-- SOURCE: https://social.msdn.microsoft.com/Forums/sqlserver/en-US/78d4c34d-fac0-4b58-a32f-7f32d7fa58a5/sql-error-logged-in-windows-event-log-error-4014-severity-20-state-13-msg-a-fatal-error?forum=sqldatabaseengine
+
+It looks like a network error. The error indicates that SQL has started reading a message from client which potentially spans multiple TDS packets. And the error is as expected - state 13 means exactly that a read failed after we attempted to read the remainder of a partially read packet .You could use the connectivity ring buffer to find out which client triggered the 4014 error:
+SELECT * FROM sys.dm_os_ring_buffers where ring_buffer_type='RING_BUFFER_CONNECTIVITY'
+What you can also do though is to enable trace flag 7827 (DBCC TRACEON(7827, -1)) and all connection closures will be recorded into the ring buffer. As soon as you experience the 4014, query the ring buffer again and seek for a nearby record of the connection closure which shows the error 64 in the input and is indicated as killed or other abnormal flag in the TdsDisconnectFlags. 

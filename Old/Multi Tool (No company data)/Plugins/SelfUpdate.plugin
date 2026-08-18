@@ -1,0 +1,34 @@
+;--------------------------------------------------------------------
+; Self Updater
+;--------------------------------------------------------------------
+ButtonUpdateMacroSuite:
+DriveGet, status, Status, I:\
+	if (status = "Ready") {
+	Goto, StartPatch
+}
+Goto, CantPatch
+Return
+
+
+StartPatch:
+MsgBox, Now patching the Macro Suite. This may take a moment.`n`nThis suite will restart itself once completed.
+PatchDirectory = I:\CS\Prod\Promotions Files\Production Team Files\Production Macros\Install Data ; Network location to retrieve updates from.
+MsgBox, The Production Macros will be updated. Retrieving content from:`n%PatchDirectory%
+FileCopy, %PatchDirectory%\Changelog.txt, %A_WorkingDir%, 1
+FileCopy, %PatchDirectory%\MacroSuite.ahk, %A_WorkingDir%, 1
+FileCopy, %PatchDirectory%\Plugin.core, %A_WorkingDir%, 1
+FileCopy, %PatchDirectory%\System.core, %A_WorkingDir%, 1
+FileCopy, %PatchDirectory%\Plugins\*.plugin, %A_WorkingDir%\Plugins, 1
+MsgBox, The update should now be complete. The macros will now reload.
+Reload
+Return
+
+CantPatch:
+MsgBox, Unable to patch. The I:\ drive can not be accessed.`nTry patching again once you have navigated to the I:\ drive manually.
+Return
+
+UpdateNotification:
+Gui, Hide
+MsgBox, Restarting Multi-Tool`n`nThis will retrieve all network resources and send them to memory.`n`nThis fixes blank test member imports.`n`nThis will also apply any updates.
+Reload
+Return

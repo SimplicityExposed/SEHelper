@@ -1,0 +1,84 @@
+SoundBeep ;MsgBox, ADHOC LOADED
+Return
+^HOME:: Run, notepad++.exe "F:\Filesystem\Media Library\.Personal Documents\RN Backup\Multi Tool (No company data)\ADHOC.plugin" ;Opens this ADHOC script in notepad.
+^+HOME:: Run, %A_ScriptDir%\
+^INS:: ;Reload ADHOC Script - Start
+;MsgBox, ADHOC Now Reloading
+Reload
+Return ;Reload ADHOC Script - End
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+Autotrim, off
+#WinActivateForce
+;_________________________________________________________________
+; Playground below:
+
+:*:xcaptain::
+SendInput, ≛
+Return
+
+
+^F7::
+$stop := 0
+Loop, 
+{ 
+	Send, {!}clear 5000{ENTER}
+	Sleep, 45000
+	if ($stop)
+	{ 
+	  return
+	}
+}
+
+^F8:: $stop := 1
+
+Return
+
+
+;≜ - Lieutenant
+;︽ - Sergeant
+;︿ - Operator
+
+:*:xbugreport::
+TempClip("save")
+Clipboard = `
+(
+Impact on game:%A_Space%
+Version Found: 2.01.03
+Frequency:%A_Space%
+Time and date of issue: %A_DD%/%A_MM%/%A_YYYY%, %A_Hour%:%A_Min% CST 
+Commander name: Arsen Cross
+Description: %A_Space%
+)
+SendInput, {LControl Down}v{LControl Up}
+TempClip("retrieve")
+Return
+
+:*:xstfu::
+SendInput, https://youtu.be/xBFeR93m-H8
+Return
+
+^+F1::
+WinSet, Style, -0xC00000,a ; remove the titlebar and border(s) 
+WinMove, a, , -1, -1, 1920, 1080 ; move the window to 0,0 and reize it to 1920x1080
+return
+
+TempClip(action)
+{
+global TempClipData
+
+IfEqual, action, save
+	{
+		Sleep, 100
+		TempClipData := Clipboard
+		return
+	}
+IfEqual, action, retrieve
+	{
+		Sleep, 100
+		Clipboard := TempClipData
+		Return
+	}
+return
+}

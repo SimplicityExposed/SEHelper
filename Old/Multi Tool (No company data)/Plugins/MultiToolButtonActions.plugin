@@ -1,0 +1,86 @@
+; ---- Search Gooogle
+MTB4:
+Gui, 1:Submit
+	PrimaryUIState = 0
+	StringReplace, AdvancedQuery, AdvancedQuery, %A_Space%, +, All
+	Run, https://www.google.com/search?q=%AdvancedQuery%
+Return
+
+; ---- Search Google Images
+MTB5:
+Gui, 1:Submit
+PrimaryUIState = 0
+StringReplace, AdvancedQuery, AdvancedQuery, %A_Space%, +, All
+Run, https://www.google.com/search?tbm=isch&q=%AdvancedQuery%
+Return
+
+; ---- Search IxQuick
+MTB6:
+Gui, 1:Submit
+PrimaryUIState = 0
+StringReplace, AdvancedQuery, AdvancedQuery, %A_Space%, +, All
+Run, https://ixquick.com/do/search?query=%AdvancedQuery%&cat=web&pl=ie&language=english
+Return
+
+; ---- Submit Log Entry
+MTB3:
+Gui, 1:Submit
+PrimaryUIState = 0
+FileAppend,
+(
+
+%A_MM%/%A_DD%/%A_YYYY%,%A_Hour%:%A_Min%,%A_Username%,%LogLabel%,%AdvancedQuery%
+), %UserSettingsDir%\Personal Log.csv
+IfNotInString, AvailableLogTypes, %LogLabel%
+	{
+		IfNotInString, AvailableLogTypes, |
+			{
+				IniWrite, %LogLabel%|, %UserSettingsIni%, LogCustomization, LogTypes
+				Return
+			}
+		IfInString, AvailableLogTypes, |
+			{
+				IniWrite, %AvailableLogTypes%%LogLabel%|, %UserSettingsIni%, LogCustomization, LogTypes
+				Return
+			}
+	}
+Return
+
+; ---- Open Personal Log in Excel
+MTB8:
+Gui, 1:Submit
+PrimaryUIState = 0
+Run, excel.exe "%UserSettingsDir%\Personal Log.csv"
+Return
+
+MTB1:
+Return
+
+MTB7:
+Gui, Destroy
+PrimaryUIState = 0
+MsgBox, Restarting Multi-Tool`n`nThis will retrieve all network resources and send them to memory.`n`nThis fixes blank test member imports.`n`nThis will also apply any updates.
+Reload
+Return
+
+MTB2:
+Goto, HelpMenu
+Return
+
+
+
+
+; --------- MMR HTML Generation Code
+
+ButtonGenerateSendHTMLtoClipboard:
+Gui, Submit
+PrimaryUIState = 0
+FileRead, Clipboard, \\wallprdfps03.researchnow.com\Ops\CS\Prod\Promotions Files\Variable Substitution\MMR files\MMR Templates\MMR_Standard_Survey_Invite.txt
+StringReplace, clipboard, clipboard, Dear <`%FIRST`%> <`%LAST`%>, %SalutationVar%, All
+StringReplace, clipboard, clipboard, +++ Study, %StudyName%, All
+StringReplace, clipboard, clipboard, $+++, $%RewardAmount%.00, All
+StringReplace, clipboard, clipboard, +++ Minutes, %LOI% Minutes, All
+StringReplace, clipboard, clipboard, +++ J+++ P+++, %JobID%, All
+MsgBox, The new MMR Email copy is now in your clipboard ready to paste into CMS!
+Gui, Destroy
+Return

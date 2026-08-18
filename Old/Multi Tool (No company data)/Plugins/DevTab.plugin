@@ -1,0 +1,16 @@
+{
+Gui, Tab, DEV
+	Gui, Add, Edit, x2 y60 w350 h20 vAdvancedQuery,  
+	IniRead, AvailableLogTypes, %UserSettingsIni%, LogCustomization, LogTypes,
+	Gui, Add, ComboBox, x362 y60 w180 h100 vLogLabel, %AvailableLogTypes%
+;	Gui, Add, Button, x572 y15 w130 h20 gMTB2, &Help Menu
+	Gui, Add, Button, x552 y60 w70 h20 gMTB3 Default, &Submit Log
+	Gui, Add, Button, x2 y85 w60 h20 gMTB4, &Google
+	Gui, Add, Button, x72 y85 w50 h20 gMTB5, Im&ages
+	Gui, Add, Button, x132 y85 w50 h20 gMTB6, Ix&Quick
+	Gui, Add, Button, x626 y60 w70 h20 gMTB8, Open &Log
+	Gui, Add, Button, x192 y85 w50 h20 gMTB7, Restart
+	Gui, Add, Button, x22 y150 w160 h20 gUserStatus, User Information
+	GuiControl, Focus, AdvancedQuery
+Gui, Tab
+}

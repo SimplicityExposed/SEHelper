@@ -1,0 +1,18 @@
+; -------- T3 "Prod SQL"			
+Gui, Tab, Prod SQL
+; SQL On Demand UI Elements
+	Gui, Add, DropDownList, x22 y70 w350 h150 vSQLOnDemandRequested, %ProdAvailableSQL%
+	Gui, Add, GroupBox, x12 y50 w370 h190 , SQL On Demand
+	Gui, Add, Button, x222 y100 w140 h20 gSQLOnDemand, Send SQL to Clipboard
+	Gui, Add, Text, x22 y130 w350 h100 , This portion of the tool will provide you with ERI specific SQL code used for New Wave requests. Selecting the code and hitting Get SQL will send the code to your clipboard.`n`nWith exception of the job number you can specify to be replaced`, all other specifications within the SQL will still need to be updated.
+	Gui, Add, Edit, x102 y100 w110 h20 Center vSQLJOB, %JobClip%
+	Gui, Add, Text, x32 y103 w70 h14 +Right, Job Number:
+
+; New Wave Generator UI Elements
+IfEqual, EnableDevContent, 1
+{
+	Gui, Add, Button, x392 y70 w290 h30 , Open the New Wave Generator
+	Gui, Add, GroupBox, x382 y50 w310 h190 , New Wave Generator
+	Gui, Add, Text, x392 y110 w290 h120 , The new wave generator will allow you to create a majority of a new wave requests code on the fly.`n`nInstructions on how to use this part of the tool can be found through the help dialogue within its window.
+}
+Gui, Tab

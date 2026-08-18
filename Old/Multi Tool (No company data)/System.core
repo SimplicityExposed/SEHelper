@@ -1,0 +1,61 @@
+EnableDevContent = 1
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+Author = Michael A. Smith [masmith@researchnow.com]
+IniRead, MVersion, %A_ScriptDir%\System.ini, SuiteVersion, CurrentVersion,
+
+DefineUserName = %A_Username%
+
+#Include %A_ScriptDir%\Plugins\StartupActions.plugin
+#Include %A_ScriptDir%\Plugins\MultiToolButtonNames.plugin
+;MsgBox, Production Multi-Tool V%MVersion% now ready for use!`n`nUse Alt+`` (grave accent/tilde key, directly to the left of the 1 key) to launch the UI.
+#Include F:\Filesystem\Media Library\.Personal Documents\RN Backup\Multi Tool (No company data)\ADHOC.plugin
+
+!`::
+IfEqual, PrimaryUIState, 1
+	{
+		Gui, 1:Cancel
+		Gui, 1:Destroy
+		PrimaryUIState = 0
+		Return
+	}
+IfNotEqual, PrimaryUIState, 1
+	{
+		#Include %A_ScriptDir%\Plugins\MultiToolGUI.plugin
+		Gui, Show, h305 w702 %WindowPosition%, Simplicity
+		PrimaryUIState = 1
+		Return 
+	}
+Return
+
+; --- Close GUI Code
+HideMTGui:
+Gui, 1:Cancel
+Gui, 1:Destroy
+PrimaryUIState = 0
+Return
+
+ButtonCancelIt:
+Gui, Cancel
+Gui, Destroy
+Return
+
+GuiClose:
+Gui, Cancel
+Gui, Destroy
+PrimaryUIState = 0
+Return
+
+GuiEscape:
+1GuiEscape:
+Gui, 1:Cancel
+Gui, 1:Destroy
+PrimaryUIState = 0
+Return
+
+ClearGUI:
+Gui, Cancel
+Gui, Destroy
+PrimaryUIState = 0
+Return

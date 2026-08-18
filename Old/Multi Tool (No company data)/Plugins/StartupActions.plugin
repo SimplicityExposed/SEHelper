@@ -1,0 +1,300 @@
+; --------------------------------------------------------------------
+; Wave 1 Test Member Retrieval
+; --------------------------------------------------------------------
+TESTVARLOCATION = I:\CS\Prod\Promotions Files\Variable Substitution\ERI\Test_ids_variables
+FileReadLine, ENUSMEM1, %TESTVARLOCATION%\US_memids (20).txt, 2
+FileReadLine, ENUSMEM2, %TESTVARLOCATION%\US_memids (20).txt, 3
+FileReadLine, ENUSMEM3, %TESTVARLOCATION%\US_memids (20).txt, 4
+FileReadLine, ENUSMEM4, %TESTVARLOCATION%\US_memids (20).txt, 5
+FileReadLine, ENUSMEM5, %TESTVARLOCATION%\US_memids (20).txt, 6
+FileReadLine, ENUSMEM6, %TESTVARLOCATION%\US_memids (20).txt, 7
+FileReadLine, ENUSMEM7, %TESTVARLOCATION%\US_memids (20).txt, 8
+FileReadLine, ENUSMEM8, %TESTVARLOCATION%\US_memids (20).txt, 9
+FileReadLine, ENUSMEM9, %TESTVARLOCATION%\US_memids (20).txt, 10
+FileReadLine, ENUSMEM10, %TESTVARLOCATION%\US_memids (20).txt, 11
+FileReadLine, ENUSMEM11, %TESTVARLOCATION%\US_memids (20).txt, 12
+FileReadLine, ENUSMEM12, %TESTVARLOCATION%\US_memids (20).txt, 13
+FileReadLine, ENUSMEM13, %TESTVARLOCATION%\US_memids (20).txt, 14
+FileReadLine, ENUSMEM14, %TESTVARLOCATION%\US_memids (20).txt, 15
+FileReadLine, ENUSMEM15, %TESTVARLOCATION%\US_memids (20).txt, 16
+FileReadLine, ENUSMEM16, %TESTVARLOCATION%\US_memids (20).txt, 17
+FileReadLine, ENUSMEM17, %TESTVARLOCATION%\US_memids (20).txt, 18
+FileReadLine, ENUSMEM18, %TESTVARLOCATION%\US_memids (20).txt, 19
+FileReadLine, ENUSMEM19, %TESTVARLOCATION%\US_memids (20).txt, 20
+FileReadLine, ENUSMEM20, %TESTVARLOCATION%\US_memids (20).txt, 21
+FileReadLine, ENCAMEM1, %TESTVARLOCATION%\EN_CA_memids (20).txt, 2
+FileReadLine, ENCAMEM2, %TESTVARLOCATION%\EN_CA_memids (20).txt, 3
+FileReadLine, ENCAMEM3, %TESTVARLOCATION%\EN_CA_memids (20).txt, 4
+FileReadLine, ENCAMEM4, %TESTVARLOCATION%\EN_CA_memids (20).txt, 5
+FileReadLine, ENCAMEM5, %TESTVARLOCATION%\EN_CA_memids (20).txt, 6
+FileReadLine, ENCAMEM6, %TESTVARLOCATION%\EN_CA_memids (20).txt, 7
+FileReadLine, ENCAMEM7, %TESTVARLOCATION%\EN_CA_memids (20).txt, 8
+FileReadLine, ENCAMEM8, %TESTVARLOCATION%\EN_CA_memids (20).txt, 9
+FileReadLine, ENCAMEM9, %TESTVARLOCATION%\EN_CA_memids (20).txt, 10
+FileReadLine, ENCAMEM10, %TESTVARLOCATION%\EN_CA_memids (20).txt, 11
+FileReadLine, ENCAMEM11, %TESTVARLOCATION%\EN_CA_memids (20).txt, 12
+FileReadLine, ENCAMEM12, %TESTVARLOCATION%\EN_CA_memids (20).txt, 13
+FileReadLine, ENCAMEM13, %TESTVARLOCATION%\EN_CA_memids (20).txt, 14
+FileReadLine, ENCAMEM14, %TESTVARLOCATION%\EN_CA_memids (20).txt, 15
+FileReadLine, ENCAMEM15, %TESTVARLOCATION%\EN_CA_memids (20).txt, 16
+FileReadLine, ENCAMEM16, %TESTVARLOCATION%\EN_CA_memids (20).txt, 17
+FileReadLine, ENCAMEM17, %TESTVARLOCATION%\EN_CA_memids (20).txt, 18
+FileReadLine, ENCAMEM18, %TESTVARLOCATION%\EN_CA_memids (20).txt, 19
+FileReadLine, ENCAMEM19, %TESTVARLOCATION%\EN_CA_memids (20).txt, 20
+FileReadLine, ENCAMEM20, %TESTVARLOCATION%\EN_CA_memids (20).txt, 21
+FileReadLine, FRCAMEM1, %TESTVARLOCATION%\FR_CA_memids (20).txt, 2
+FileReadLine, FRCAMEM2, %TESTVARLOCATION%\FR_CA_memids (20).txt, 3
+FileReadLine, FRCAMEM3, %TESTVARLOCATION%\FR_CA_memids (20).txt, 4
+FileReadLine, FRCAMEM4, %TESTVARLOCATION%\FR_CA_memids (20).txt, 5
+FileReadLine, FRCAMEM5, %TESTVARLOCATION%\FR_CA_memids (20).txt, 6
+FileReadLine, FRCAMEM6, %TESTVARLOCATION%\FR_CA_memids (20).txt, 7
+FileReadLine, FRCAMEM7, %TESTVARLOCATION%\FR_CA_memids (20).txt, 8
+FileReadLine, FRCAMEM8, %TESTVARLOCATION%\FR_CA_memids (20).txt, 9
+FileReadLine, FRCAMEM9, %TESTVARLOCATION%\FR_CA_memids (20).txt, 10
+FileReadLine, FRCAMEM10, %TESTVARLOCATION%\FR_CA_memids (20).txt, 11
+FileReadLine, FRCAMEM11, %TESTVARLOCATION%\FR_CA_memids (20).txt, 12
+FileReadLine, FRCAMEM12, %TESTVARLOCATION%\FR_CA_memids (20).txt, 13
+FileReadLine, FRCAMEM13, %TESTVARLOCATION%\FR_CA_memids (20).txt, 14
+FileReadLine, FRCAMEM14, %TESTVARLOCATION%\FR_CA_memids (20).txt, 15
+FileReadLine, FRCAMEM15, %TESTVARLOCATION%\FR_CA_memids (20).txt, 16
+FileReadLine, FRCAMEM16, %TESTVARLOCATION%\FR_CA_memids (20).txt, 17
+FileReadLine, FRCAMEM17, %TESTVARLOCATION%\FR_CA_memids (20).txt, 18
+FileReadLine, FRCAMEM18, %TESTVARLOCATION%\FR_CA_memids (20).txt, 19
+FileReadLine, FRCAMEM19, %TESTVARLOCATION%\FR_CA_memids (20).txt, 20
+FileReadLine, FRCAMEM20, %TESTVARLOCATION%\FR_CA_memids (20).txt, 21
+FileReadLine, ENMXMEM1, %TESTVARLOCATION%\ES_MX_memid(20).txt, 2
+FileReadLine, ENMXMEM2, %TESTVARLOCATION%\ES_MX_memid(20).txt, 3
+FileReadLine, ENMXMEM3, %TESTVARLOCATION%\ES_MX_memid(20).txt, 4
+FileReadLine, ENMXMEM4, %TESTVARLOCATION%\ES_MX_memid(20).txt, 5
+FileReadLine, ENMXMEM5, %TESTVARLOCATION%\ES_MX_memid(20).txt, 6
+FileReadLine, ENMXMEM6, %TESTVARLOCATION%\ES_MX_memid(20).txt, 7
+FileReadLine, ENMXMEM7, %TESTVARLOCATION%\ES_MX_memid(20).txt, 8
+FileReadLine, ENMXMEM8, %TESTVARLOCATION%\ES_MX_memid(20).txt, 9
+FileReadLine, ENMXMEM9, %TESTVARLOCATION%\ES_MX_memid(20).txt, 10
+FileReadLine, ENMXMEM10, %TESTVARLOCATION%\ES_MX_memid(20).txt, 11
+FileReadLine, ENMXMEM11, %TESTVARLOCATION%\ES_MX_memid(20).txt, 12
+FileReadLine, ENMXMEM12, %TESTVARLOCATION%\ES_MX_memid(20).txt, 13
+FileReadLine, ENMXMEM13, %TESTVARLOCATION%\ES_MX_memid(20).txt, 14
+FileReadLine, ENMXMEM14, %TESTVARLOCATION%\ES_MX_memid(20).txt, 15
+FileReadLine, ENMXMEM15, %TESTVARLOCATION%\ES_MX_memid(20).txt, 16
+FileReadLine, ENMXMEM16, %TESTVARLOCATION%\ES_MX_memid(20).txt, 17
+FileReadLine, ENMXMEM17, %TESTVARLOCATION%\ES_MX_memid(20).txt, 18
+FileReadLine, ENMXMEM18, %TESTVARLOCATION%\ES_MX_memid(20).txt, 19
+FileReadLine, ENMXMEM19, %TESTVARLOCATION%\ES_MX_memid(20).txt, 20
+FileReadLine, ENMXMEM20, %TESTVARLOCATION%\ES_MX_memid(20).txt, 21
+FileReadLine, ENAEMEM1, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 2
+FileReadLine, ENAEMEM2, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 3
+FileReadLine, ENAEMEM3, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 4
+FileReadLine, ENAEMEM4, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 5
+FileReadLine, ENAEMEM5, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 6
+FileReadLine, ENAEMEM6, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 7
+FileReadLine, ENAEMEM7, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 8
+FileReadLine, ENAEMEM8, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 9
+FileReadLine, ENAEMEM9, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 10
+FileReadLine, ENAEMEM10, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 11
+FileReadLine, ENAEMEM11, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 12
+FileReadLine, ENAEMEM12, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 13
+FileReadLine, ENAEMEM13, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 14
+FileReadLine, ENAEMEM14, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 15
+FileReadLine, ENAEMEM15, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 16
+FileReadLine, ENAEMEM16, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 17
+FileReadLine, ENAEMEM17, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 18
+FileReadLine, ENAEMEM18, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 19
+FileReadLine, ENAEMEM19, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 20
+FileReadLine, ENAEMEM20, %TESTVARLOCATION%\International Locales\ArabEmirates(AE)_memids(20).txt, 21
+FileReadLine, ENAUMEM1, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 2
+FileReadLine, ENAUMEM2, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 3
+FileReadLine, ENAUMEM3, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 4
+FileReadLine, ENAUMEM4, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 5
+FileReadLine, ENAUMEM5, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 6
+FileReadLine, ENAUMEM6, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 7
+FileReadLine, ENAUMEM7, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 8
+FileReadLine, ENAUMEM8, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 9
+FileReadLine, ENAUMEM9, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 10
+FileReadLine, ENAUMEM10, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 11
+FileReadLine, ENAUMEM11, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 12
+FileReadLine, ENAUMEM12, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 13
+FileReadLine, ENAUMEM13, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 14
+FileReadLine, ENAUMEM14, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 15
+FileReadLine, ENAUMEM15, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 16
+FileReadLine, ENAUMEM16, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 17
+FileReadLine, ENAUMEM17, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 18
+FileReadLine, ENAUMEM18, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 19
+FileReadLine, ENAUMEM19, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 20
+FileReadLine, ENAUMEM20, %TESTVARLOCATION%\International Locales\Australia(Au)_memids (20).txt, 21
+FileReadLine, PTBRMEM1, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 2
+FileReadLine, PTBRMEM2, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 3
+FileReadLine, PTBRMEM3, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 4
+FileReadLine, PTBRMEM4, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 5
+FileReadLine, PTBRMEM5, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 6
+FileReadLine, PTBRMEM6, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 7
+FileReadLine, PTBRMEM7, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 8
+FileReadLine, PTBRMEM8, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 9
+FileReadLine, PTBRMEM9, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 10
+FileReadLine, PTBRMEM10, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 11
+FileReadLine, PTBRMEM11, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 12
+FileReadLine, PTBRMEM12, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 13
+FileReadLine, PTBRMEM13, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 14
+FileReadLine, PTBRMEM14, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 15
+FileReadLine, PTBRMEM15, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 16
+FileReadLine, PTBRMEM16, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 17
+FileReadLine, PTBRMEM17, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 18
+FileReadLine, PTBRMEM18, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 19
+FileReadLine, PTBRMEM19, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 20
+FileReadLine, PTBRMEM20, %TESTVARLOCATION%\International Locales\Brazil(BR)_memids(20).txt, 21
+FileReadLine, FRFRMEM1, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 2
+FileReadLine, FRFRMEM2, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 3
+FileReadLine, FRFRMEM3, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 4
+FileReadLine, FRFRMEM4, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 5
+FileReadLine, FRFRMEM5, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 6
+FileReadLine, FRFRMEM6, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 7
+FileReadLine, FRFRMEM7, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 8
+FileReadLine, FRFRMEM8, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 9
+FileReadLine, FRFRMEM9, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 10
+FileReadLine, FRFRMEM10, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 11
+FileReadLine, FRFRMEM11, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 12
+FileReadLine, FRFRMEM12, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 13
+FileReadLine, FRFRMEM13, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 14
+FileReadLine, FRFRMEM14, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 15
+FileReadLine, FRFRMEM15, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 16
+FileReadLine, FRFRMEM16, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 17
+FileReadLine, FRFRMEM17, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 18
+FileReadLine, FRFRMEM18, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 19
+FileReadLine, FRFRMEM19, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 20
+FileReadLine, FRFRMEM20, %TESTVARLOCATION%\International Locales\France_memids (20).txt, 21
+FileReadLine, DEDEMEM1, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 2
+FileReadLine, DEDEMEM2, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 3
+FileReadLine, DEDEMEM3, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 4
+FileReadLine, DEDEMEM4, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 5
+FileReadLine, DEDEMEM5, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 6
+FileReadLine, DEDEMEM6, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 7
+FileReadLine, DEDEMEM7, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 8
+FileReadLine, DEDEMEM8, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 9
+FileReadLine, DEDEMEM9, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 10
+FileReadLine, DEDEMEM10, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 11
+FileReadLine, DEDEMEM11, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 12
+FileReadLine, DEDEMEM12, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 13
+FileReadLine, DEDEMEM13, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 14
+FileReadLine, DEDEMEM14, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 15
+FileReadLine, DEDEMEM15, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 16
+FileReadLine, DEDEMEM16, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 17
+FileReadLine, DEDEMEM17, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 18
+FileReadLine, DEDEMEM18, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 19
+FileReadLine, DEDEMEM19, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 20
+FileReadLine, DEDEMEM20, %TESTVARLOCATION%\International Locales\Germany_memids (20).txt, 21
+FileReadLine, ENGBMEM1, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 2
+FileReadLine, ENGBMEM2, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 3
+FileReadLine, ENGBMEM3, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 4
+FileReadLine, ENGBMEM4, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 5
+FileReadLine, ENGBMEM5, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 6
+FileReadLine, ENGBMEM6, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 7
+FileReadLine, ENGBMEM7, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 8
+FileReadLine, ENGBMEM8, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 9
+FileReadLine, ENGBMEM9, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 10
+FileReadLine, ENGBMEM10, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 11
+FileReadLine, ENGBMEM11, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 12
+FileReadLine, ENGBMEM12, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 13
+FileReadLine, ENGBMEM13, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 14
+FileReadLine, ENGBMEM14, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 15
+FileReadLine, ENGBMEM15, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 16
+FileReadLine, ENGBMEM16, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 17
+FileReadLine, ENGBMEM17, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 18
+FileReadLine, ENGBMEM18, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 19
+FileReadLine, ENGBMEM19, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 20
+FileReadLine, ENGBMEM20, %TESTVARLOCATION%\International Locales\Great_Britain_memids (20).txt, 21
+FileReadLine, NECTARMEM1, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 2
+FileReadLine, NECTARMEM2, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 3
+FileReadLine, NECTARMEM3, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 4
+FileReadLine, NECTARMEM4, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 5
+FileReadLine, NECTARMEM5, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 6
+FileReadLine, NECTARMEM6, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 7
+FileReadLine, NECTARMEM7, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 8
+FileReadLine, NECTARMEM8, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 9
+FileReadLine, NECTARMEM9, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 10
+FileReadLine, NECTARMEM10, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 11
+FileReadLine, NECTARMEM11, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 12
+FileReadLine, NECTARMEM12, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 13
+FileReadLine, NECTARMEM13, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 14
+FileReadLine, NECTARMEM14, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 15
+FileReadLine, NECTARMEM15, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 16
+FileReadLine, NECTARMEM16, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 17
+FileReadLine, NECTARMEM17, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 18
+FileReadLine, NECTARMEM18, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 19
+FileReadLine, NECTARMEM19, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 20
+FileReadLine, NECTARMEM20, %TESTVARLOCATION%\International Locales\UK_wave_1_member_ids (Nectar).txt, 21
+ENUSTESTIDS = %ENUSMEM1%`r%ENUSMEM2%`r%ENUSMEM3%`r%ENUSMEM4%`r%ENUSMEM5%`r%ENUSMEM6%`r%ENUSMEM7%`r%ENUSMEM8%`r%ENUSMEM9%`r%ENUSMEM10%`r%ENUSMEM11%`r%ENUSMEM12%`r%ENUSMEM13%`r%ENUSMEM14%`r%ENUSMEM15%`r%ENUSMEM16%`r%ENUSMEM17%`r%ENUSMEM18%`r%ENUSMEM19%`r%ENUSMEM20%
+ENCATESTIDS = %ENCAMEM1%`r%ENCAMEM2%`r%ENCAMEM3%`r%ENCAMEM4%`r%ENCAMEM5%`r%ENCAMEM6%`r%ENCAMEM7%`r%ENCAMEM8%`r%ENCAMEM9%`r%ENCAMEM10%`r%ENCAMEM11%`r%ENCAMEM12%`r%ENCAMEM13%`r%ENCAMEM14%`r%ENCAMEM15%`r%ENCAMEM16%`r%ENCAMEM17%`r%ENCAMEM18%`r%ENCAMEM19%`r%ENCAMEM20%
+FRCATESTIDS = %FRCAMEM1%`r%FRCAMEM2%`r%FRCAMEM3%`r%FRCAMEM4%`r%FRCAMEM5%`r%FRCAMEM6%`r%FRCAMEM7%`r%FRCAMEM8%`r%FRCAMEM9%`r%FRCAMEM10%`r%FRCAMEM11%`r%FRCAMEM12%`r%FRCAMEM13%`r%FRCAMEM14%`r%FRCAMEM15%`r%FRCAMEM16%`r%FRCAMEM17%`r%FRCAMEM18%`r%FRCAMEM19%`r%FRCAMEM20%
+ENMXTESTIDS = %ENMXMEM1%`r%ENMXMEM2%`r%ENMXMEM3%`r%ENMXMEM4%`r%ENMXMEM5%`r%ENMXMEM6%`r%ENMXMEM7%`r%ENMXMEM8%`r%ENMXMEM9%`r%ENMXMEM10%`r%ENMXMEM11%`r%ENMXMEM12%`r%ENMXMEM13%`r%ENMXMEM14%`r%ENMXMEM15%`r%ENMXMEM16%`r%ENMXMEM17%`r%ENMXMEM18%`r%ENMXMEM19%`r%ENMXMEM20%
+ENAETESTIDS = %ENAEMEM1%`r%ENAEMEM2%`r%ENAEMEM3%`r%ENAEMEM4%`r%ENAEMEM5%`r%ENAEMEM6%`r%ENAEMEM7%`r%ENAEMEM8%`r%ENAEMEM9%`r%ENAEMEM10%`r%ENAEMEM11%`r%ENAEMEM12%`r%ENAEMEM13%`r%ENAEMEM14%`r%ENAEMEM15%`r%ENAEMEM16%`r%ENAEMEM17%`r%ENAEMEM18%`r%ENAEMEM19%`r%ENAEMEM20%
+ENAUTESTIDS = %ENAUMEM1%`r%ENAUMEM2%`r%ENAUMEM3%`r%ENAUMEM4%`r%ENAUMEM5%`r%ENAUMEM6%`r%ENAUMEM7%`r%ENAUMEM8%`r%ENAUMEM9%`r%ENAUMEM10%`r%ENAUMEM11%`r%ENAUMEM12%`r%ENAUMEM13%`r%ENAUMEM14%`r%ENAUMEM15%`r%ENAUMEM16%`r%ENAUMEM17%`r%ENAUMEM18%`r%ENAUMEM19%`r%ENAUMEM20%
+PTBRTESTIDS = %PTBRMEM1%`r%PTBRMEM2%`r%PTBRMEM3%`r%PTBRMEM4%`r%PTBRMEM5%`r%PTBRMEM6%`r%PTBRMEM7%`r%PTBRMEM8%`r%PTBRMEM9%`r%PTBRMEM10%`r%PTBRMEM11%`r%PTBRMEM12%`r%PTBRMEM13%`r%PTBRMEM14%`r%PTBRMEM15%`r%PTBRMEM16%`r%PTBRMEM17%`r%PTBRMEM18%`r%PTBRMEM19%`r%PTBRMEM20%
+FRFRTESTIDS = %FRFRMEM1%`r%FRFRMEM2%`r%FRFRMEM3%`r%FRFRMEM4%`r%FRFRMEM5%`r%FRFRMEM6%`r%FRFRMEM7%`r%FRFRMEM8%`r%FRFRMEM9%`r%FRFRMEM10%`r%FRFRMEM11%`r%FRFRMEM12%`r%FRFRMEM13%`r%FRFRMEM14%`r%FRFRMEM15%`r%FRFRMEM16%`r%FRFRMEM17%`r%FRFRMEM18%`r%FRFRMEM19%`r%FRFRMEM20%
+DEDETESTIDS = %DEDEMEM1%`r%DEDEMEM2%`r%DEDEMEM3%`r%DEDEMEM4%`r%DEDEMEM5%`r%DEDEMEM6%`r%DEDEMEM7%`r%DEDEMEM8%`r%DEDEMEM9%`r%DEDEMEM10%`r%DEDEMEM11%`r%DEDEMEM12%`r%DEDEMEM13%`r%DEDEMEM14%`r%DEDEMEM15%`r%DEDEMEM16%`r%DEDEMEM17%`r%DEDEMEM18%`r%DEDEMEM19%`r%DEDEMEM20%
+ENGBTESTIDS = %ENGBMEM1%`r%ENGBMEM2%`r%ENGBMEM3%`r%ENGBMEM4%`r%ENGBMEM5%`r%ENGBMEM6%`r%ENGBMEM7%`r%ENGBMEM8%`r%ENGBMEM9%`r%ENGBMEM10%`r%ENGBMEM11%`r%ENGBMEM12%`r%ENGBMEM13%`r%ENGBMEM14%`r%ENGBMEM15%`r%ENGBMEM16%`r%ENGBMEM17%`r%ENGBMEM18%`r%ENGBMEM19%`r%ENGBMEM20%
+NECTARTESTIDS = %NECTARMEM1%`r%NECTARMEM2%`r%NECTARMEM3%`r%NECTARMEM4%`r%NECTARMEM5%`r%NECTARMEM6%`r%NECTARMEM7%`r%NECTARMEM8%`r%NECTARMEM9%`r%NECTARMEM10%`r%NECTARMEM11%`r%NECTARMEM12%`r%NECTARMEM13%`r%NECTARMEM14%`r%NECTARMEM15%`r%NECTARMEM16%`r%NECTARMEM17%`r%NECTARMEM18%`r%NECTARMEM19%`r%NECTARMEM20%
+
+
+
+UserSettingsDir = C:\Users\%A_Username%\MacroSuite
+UserSettingsIni = C:\Users\%A_Username%\MacroSuite\Settings.ini
+
+; --------------------------------------------------------------------
+; Check if MacroSuite user settings DIR exists and create if it does not.
+; --------------------------------------------------------------------
+IfNotExist, C:\Users\%A_Username%\MacroSuite
+{
+	FileCreateDir, %UserSettingsDir%
+}
+
+; --------------------------------------------------------------------
+; Create Personal Log.csv if it does not exist and preload it with header column.
+; --------------------------------------------------------------------
+IfNotExist, C:\Users\%A_Username%\MacroSuite\Personal Log.csv
+{
+	LogEntryHeaderRow = Date,Time,Username,Entry Type,Log Entry
+	FileAppend, %LogEntryHeaderRow%, %UserSettingsDir%\Personal Log.csv
+}
+
+; --------------------------------------------------------------------
+; Check if Settings.ini exists and create it if it does not.
+; --------------------------------------------------------------------
+IfNotExist, %UserSettingsIni%
+{
+	SectionTitle1 = [LogCustomization]`n
+	SectionKey1 = LogTypes=
+	FileAppend, %SectionTitle1%, %UserSettingsDir%\Settings.ini
+	FileAppend, %SectionKey1%, %UserSettingsDir%\Settings.ini
+}
+
+
+; --------------------------------------------------------------------
+; Define Ctrl+RightClick Menu
+; --------------------------------------------------------------------
+Menu, ClipnoteMenu, Add, Send Clipboard to JobClip, JobClipActions
+Menu, ClipnoteMenu, Add  ; Add a separator line.
+Menu, ClipnoteMenu, Add, Save Clipnote #1, CN1S
+Menu, ClipnoteMenu, Add, Get Clipnote #1, CN1G
+Menu, ClipnoteMenu, Add  ; Add a separator line.
+Menu, ClipnoteMenu, Add, Save Clipnote #2, CN2S
+Menu, ClipnoteMenu, Add, Get Clipnote #2, CN2G
+Menu, ClipnoteMenu, Add  ; Add a separator line.
+Menu, ClipnoteMenu, Add, Save Clipnote #3, CN3S
+Menu, ClipnoteMenu, Add, Get Clipnote #3, CN3G
+Menu, ClipnoteMenu, Add  ; Add a separator line.
+Menu, ClipnoteMenu, Add, Save Clipnote #4, CN4S
+Menu, ClipnoteMenu, Add, Get Clipnote #4, CN4G
+Menu, ClipnoteMenu, Add  ; Add a separator line.
+;Submenu to Clear Clipnotes
+Menu, ClearCNMenu, Add, Delete All Clipnotes, ClearAllClipnotes
+Menu, ClearCNMenu, Add  ; Add a separator line.
+Menu, ClearCNMenu, Add, Delete Clipnote #1, ClearCN1
+Menu, ClearCNMenu, Add, Delete Clipnote #2, ClearCN2
+Menu, ClearCNMenu, Add, Delete Clipnote #3, ClearCN3
+Menu, ClearCNMenu, Add, Delete Clipnote #4, ClearCN4
+Menu, ClipnoteMenu, Add, Clear Clipnotes, :ClearCNMenu
+
+; Window Position Coding
+PositionX = ;
+PositionY = ;
+WindowPosition = ;

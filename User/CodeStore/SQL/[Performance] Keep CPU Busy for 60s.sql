@@ -1,0 +1,5 @@
+-- Query to keep CPU busy for 60 seconds
+DECLARE @T DATETIME, @F BIGINT;
+SET @T = GETDATE();
+WHILE DATEADD(SECOND,60,@T)>GETDATE()
+SET @F = POWER(2,30);

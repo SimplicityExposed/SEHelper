@@ -1,0 +1,12 @@
+;--------------------------------------------------------------------
+;Screener Import Auto-Fill
+;--------------------------------------------------------------------
+; This feature auto-fills the screener import popup with your password and server and puts you in the job number entry field.
+; This will only work if you have already initiated the import and received the dialogue box that asks for server, user, password and job number.
++F1::
+Send {TAB 2}
+Send internal.e-rewards.com
+Send {TAB}
+Send %JobClip%
+Send {TAB 2}
+Return
